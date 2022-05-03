@@ -1,0 +1,90 @@
+body
+{
+    background-color: #171717;
+}
+
+.loginMaster
+{
+    background-color: #909090;
+    font-family: sans-serif;
+    margin: auto;
+    margin-top: 10vh;
+    width: 25vw;
+    height: 50vh;
+}
+
+#webTitle
+{
+    color: white;
+    font-size: 2.5em
+}
+
+.inputHolder
+{
+    background-color: #363636;
+    margin: auto;
+    text-align: center;
+    display: inline-block;
+    padding-bottom: 5vh;
+    border-radius: 16px;
+    width: 100%;
+    height: 70%
+}
+
+form
+{
+    display: inline-block;
+    margin: auto;
+}
+
+input 
+{ 
+    background-color: #171717;
+    color: white;
+    display: block;
+    outline: none;
+    font-size: 0.95em;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    width: 15vw;
+    height: 5vh;
+    border-radius: 8px;
+    border-width: 0px;
+}
+
+input::placeholder
+{
+    font-size: 0.8em
+}
+
+::-ms-reveal { filter: invert(100%) }
+
+input[type=text]
+{
+    margin-bottom: 1vh
+}
+
+input[type=password]
+{
+    margin-bottom: 2vh
+}
+
+button
+{
+    outline: none;
+    background-color: white;
+    color: #26619c;
+    font-weight: bold;
+    border-width: 0px;
+    width: 100%;
+    height: 3.5vh;
+}
+
+.reminder
+{
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 16px;
+    width: 100%;
+    height: 30%;
+}
