@@ -1,4 +1,4 @@
-import '../css/Login.css'
+import '../css/Register.css'
 
 const LoginScreen = (props) =>
 {
@@ -14,7 +14,7 @@ const LoginScreen = (props) =>
             </div>
 
             <div className='reminder'>
-                <p className='reminderText'>Don't have an account? Create one here!</p>
+                <p className='reminderText'>Don't have an account? Create one <a id='url' href='/register'>here</a>!</p>
             </div>
         </div>
     )
