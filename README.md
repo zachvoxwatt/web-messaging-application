@@ -8,7 +8,9 @@ Welcome to my humble self-made Messaging Web Application! This is still just a p
 2. Run `npm start`.
 
 ## Accomplished works
-*TBA*
+- UIs:
+    1. Login
+    2. Registration
 
 ## Planned works
 1. Implement the basic User Interface
