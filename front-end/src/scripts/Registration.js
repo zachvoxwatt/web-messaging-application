@@ -1,18 +1,19 @@
+import '../css/Register.css'
+
 const RegisterScreen = () =>
 {
     return(
         <div className='registrationMaster'>
-            <h2 id='registerTitle'>User Registration</h2>
             <div className='inputHolder'>
+                <h2 id='registerTitle'>User Registration</h2>
                 <form>
-                    <input type='text' placeholder='Username goes here!'/>
-                    <input type='password' placeholder="Password is hidden! Don't worry!"/>
-                    <button>Log In</button>
+                    <input type='text' placeholder='Username'/>
+                    <input type='email' placeholder='Email'/>
+                    <input type='password' placeholder="Password"/>
+                    <input type='password' id='confpass' placeholder='Password Confirmation'/>
+                    <button>Summon your account!</button>
+                    <button>Cancel</button>
                 </form>
-            </div>
-
-            <div className='reminder'>
-                <p className='reminderText'>Don't have an account? Create one <a id='url' href='/register'>here</a>!</p>
             </div>
         </div>
     )

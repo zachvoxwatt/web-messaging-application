@@ -1,15 +1,15 @@
-import '../css/Register.css'
+import '../css/Login.css'
 
 const LoginScreen = (props) =>
 {
     return(
         <div className="loginMaster">
             <div className='inputHolder'>
-                <h2 id='webTitle'>Welcome!</h2>
+                <h2 id='webTitle'>Welcome Back!</h2>
                 <form>
-                    <input type='text' placeholder='Username goes here!'/>
-                    <input type='password' placeholder="Password is hidden! Don't worry!"/>
-                    <button>Log In</button>
+                    <input type='text' id='uname' placeholder='Username goes here!'/>
+                    <input type='password' id='pass' placeholder="Password is hidden! Don't worry!"/>
+                    <button>Sign In</button>
                 </form>
             </div>
 

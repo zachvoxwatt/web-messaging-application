@@ -3,18 +3,63 @@
     font-family: sans-serif;
 }
 
-body
-{
-    background-color: #171717;
-}
+body { background-color:  #171717;}
 
 .registrationMaster
 {
-    
+    background-color: #26619c;
+    margin: auto;
+    margin-top: 10vh;
+    padding-top: 1vh;
+    width: 30%;
+    height: 50%
+}
+
+.inputHolder
+{
+    margin: 0 auto;
+    text-align: center;
+    display: inline-block;
+    padding-top: 1vh;
+    padding-bottom: 6vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    border-radius: 16px;
+    width: 100%;
+    height: 70%;
+}
+
+form
+{
+    display: inline-block;
+    margin: auto;
 }
 
 #registerTitle
 {
-    color: white;
     text-align: center;
+    color: white;
+    font-size: 250%
+}
+
+input:not(#confpass)
+{
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+input::placeholder
+{
+    position: absolute;
+    color: #666666;
+    top: 1.8vh;
+    font-size: 0.8rem;
+    transition: transform 0.2s ease-in-out;
+}
+
+input:focus::placeholder { transform: scale(0%); }
+
+button
+{
+
 }
