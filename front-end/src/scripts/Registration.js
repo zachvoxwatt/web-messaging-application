@@ -4,15 +4,17 @@ const RegisterScreen = () =>
 {
     return(
         <div className='registrationMaster'>
-            <div className='inputHolder'>
+            <div className='regInputHolder'>
                 <h2 id='registerTitle'>User Registration</h2>
-                <form>
-                    <input type='text' placeholder='Username'/>
-                    <input type='email' placeholder='Email'/>
-                    <input type='password' placeholder="Password"/>
-                    <input type='password' id='confpass' placeholder='Password Confirmation'/>
-                    <button>Summon your account!</button>
-                    <button>Cancel</button>
+                <form id='regForm'>
+                    <input className='regFields' type='text' placeholder='Username' id='regUname'/>
+                    <input className='regFields' type='email' placeholder='Email'/>
+                    <input className='regFields' type='password' placeholder="Password"/>
+                    <input className='regFields' type='password' id='regConfPass' placeholder='Password Confirmation'/>
+                    <div className='buttonsHolder'>
+                        <button id='createButt'>Summon your account!</button>
+                        <button id='cancelButt'>Cancel</button>
+                    </div>
                 </form>
             </div>
         </div>
