@@ -1,0 +1,27 @@
+body { background-color: #171717;}
+
+.chatLog, .activeList
+{
+    margin-top: 1.5vh;
+    border-radius: 8px;
+}
+
+.chatLog
+{
+    background-color: #26619c;
+    float: left;
+    border-radius: 8px;
+    margin-left: 2.25vw;
+    margin-right: 1vw;
+    width: 80vw;
+    height: 50vh
+}
+
+.activeList
+{
+    background-color: indigo;
+    float: left;
+    margin-left: 1vw;
+    width: 12vw;
+    height: 50vh;
+}

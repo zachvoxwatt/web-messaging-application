@@ -1,22 +1,17 @@
-
-
-const LogPart = (props) =>
-{
-    return(<p>Lorem ipsum dolor sit amet</p>)
-}
-
-const InputBox = (props) =>
-{
-    return(<p>Lorem ipsum dolor sit amet</p>)
-}
+import ChatLog from "./ChatLog"
+import InputBox from "./Input"
+import ActiveUsers from "./ActiveList"
 
 const ConversationScreen = (props) =>
 {   
     return(
         <div>
-            <LogPart />
-            <InputBox />
-
+            <div className='upperComp'>
+                <ChatLog />
+                <ActiveUsers />
+            </div>
+            
+            <div className='lowerComp'><InputBox /></div>
         </div>
     )
 }

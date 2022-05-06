@@ -1,0 +1,10 @@
+.textInput
+{
+    position: relative;
+    background-color: orange;
+    margin: auto;
+    border-radius: 8px;
+    margin-top: 3vh;
+    width: 50vw;
+    height: 25vh;
+}
