@@ -1,9 +1,18 @@
-body { background-color: #171717;}
+/*body { background-color: #171717;}
+*/
+.convoHolder
+{
+    background-color: yellow;
+    margin: auto;
+    width: 100vw;
+    height: 100vh;
+    padding-top: 3vh
+}
 
 .chatLog, .activeList
 {
-    margin-top: 1.5vh;
     border-radius: 8px;
+    height: 75vh;
 }
 
 .chatLog
@@ -11,17 +20,16 @@ body { background-color: #171717;}
     background-color: #26619c;
     float: left;
     border-radius: 8px;
-    margin-left: 2.25vw;
-    margin-right: 1vw;
-    width: 80vw;
-    height: 50vh
+    margin-left: 1.875%;
+    margin-right: 1.875%;
+    width: 72.5%;
 }
 
 .activeList
 {
     background-color: indigo;
     float: left;
-    margin-left: 1vw;
-    width: 12vw;
-    height: 50vh;
+    margin-right: 1.875%;
+    margin-left: 1.875%;
+    width: 20%;
 }

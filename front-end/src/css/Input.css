@@ -1,10 +1,15 @@
+.lowerComp
+{
+    float: left
+}
+
 .textInput
 {
-    position: relative;
     background-color: orange;
     margin: auto;
     border-radius: 8px;
     margin-top: 3vh;
-    width: 50vw;
-    height: 25vh;
+    margin-left: 1.875%;
+    width: 72.5vw;
+    height: 5vh;
 }

@@ -5,7 +5,7 @@ import ActiveUsers from "./ActiveList"
 const ConversationScreen = (props) =>
 {   
     return(
-        <div>
+        <div className='convoHolder'>
             <div className='upperComp'>
                 <ChatLog />
                 <ActiveUsers />
