@@ -1,4 +1,4 @@
-import '../css/Chat_User.css'
+import '../css/Conversation.css'
 
 const ChatLog = (props) =>
 {

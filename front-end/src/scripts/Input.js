@@ -1,4 +1,4 @@
-import '../css/Input.css'
+import '../css/Conversation.css'
 
 const InputBox = (props) =>
 {

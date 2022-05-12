@@ -1,0 +1,49 @@
+body { background-color: #171717;}
+
+.convoHolder
+{
+    margin: auto;
+    width: 100vw;
+    height: 97vh;
+    padding-top: 3vh
+}
+
+.upperComp
+{
+    margin: auto;
+    margin-top: 0.75%;
+    width: 95.5%;
+    height: 75.25%;
+}
+
+.lowerComp
+{
+    background-color: yellowgreen;
+    margin: auto;
+    margin-top: 2.5%;
+    width: 95.5%;
+    height: 12.5%;
+}
+
+.chatLog, .activeList
+{
+    border-radius: 8px;
+    height: 100%;
+}
+
+.chatLog
+{
+    background-color: #26619c;
+    float: left;
+    margin-right: 1.25%;
+    border-radius: 8px;
+    width: 77.5%;
+}
+
+.activeList
+{
+    background-color: indigo;
+    float: left;
+    margin-left: 1.25%;
+    width: 20%;
+}
