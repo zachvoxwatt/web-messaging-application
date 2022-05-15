@@ -3,7 +3,8 @@ import '../css/ChatText.css'
 const ChatText = (props) =>
 {
     let MAINTANANCE_MODE = true
-    console.log(props)
+    
+    
     
     if (!MAINTANANCE_MODE)
         return(

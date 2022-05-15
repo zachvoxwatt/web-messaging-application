@@ -11,7 +11,12 @@ const ChatLog = (props) =>
 
     let data2 = {
         'sender': 'Zach',
-        'content': "This is just a prototype again! Don't judge too much 😗. Võ Công Kha"
+        'content': "This is just a prototype again!\nDon't judge too much 😗. Võ Công Kha"
+    }
+
+    let data3 = {
+        'sender': 'System',
+        'content': 'a'
     }
 
     return(
