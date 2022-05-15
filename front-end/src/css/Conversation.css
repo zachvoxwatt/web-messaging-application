@@ -25,9 +25,10 @@ body { background-color: #171717;}
     height: 12.5%;
 }
 
+.chatLog, .activeList, .inputBox { border-radius: 8px;}
+
 .chatLog, .activeList
 {
-    border-radius: 8px;
     height: 100%;
 }
 
@@ -38,6 +39,17 @@ body { background-color: #171717;}
     margin-right: 1.25%;
     border-radius: 8px;
     width: 77.5%;
+}
+
+.chatLogScroll
+{
+    overflow-x: unset;
+    overflow-y: auto;
+    width: 99.5%;
+    height: 100%;
+    padding-top: 1%;
+    margin-left: 0.25%;
+    margin-right: 0.25%;
 }
 
 .activeList

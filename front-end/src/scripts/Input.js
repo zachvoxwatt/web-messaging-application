@@ -3,7 +3,7 @@ import '../css/Conversation.css'
 const InputBox = (props) =>
 {
     return(
-        <div className='textInput'>
+        <div className='inputBox'>
             
         </div>
     )
