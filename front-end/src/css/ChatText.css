@@ -1,31 +1,58 @@
-.chatContent
+.bubbleContent
+{   
+    background-color: crimson;
+    display: inline-block;
+    width: 99%;
+    margin-bottom: 0.25%;
+}
+
+.receivedText, .sentText
 {
+<<<<<<< Updated upstream
     background-color: brown;
     width: 100%;
     margin-bottom: 0.5%;
-}
-
-.avatar
-{
-    float: left;
-    background-color: yellow;
-    width: 4%;
-    margin-right: 0.5%;
-    height: 50px;
-}
-
-.text
-{
-    float: left;
-    background-color: aquamarine;
+=======
     border-style: none;
     font-family: sans-serif;  
     word-wrap: normal;
-    border-radius: 8px;
+    border-radius: 16px;
+    margin-top: 0%;
+    margin-bottom: 0%;
     margin-left: 0.5%;
-    padding-left: 0.5%;
+    padding-left: 0.85%;
     padding-top: 0.5%;
-    padding-right: 0.5%;
+    padding-right: 0.85%;
     padding-bottom: 0.5%;
-    font-size: 0.9em;
+    font-size: 1em;
+>>>>>>> Stashed changes
+}
+
+.senderAvatar
+{
+    float: left;
+    background-color: yellow;
+    margin-right: 0.5%;
+    margin-left: 0.5%;
+}
+
+.receivedText
+{
+    float: left;
+    background-color: #303030;
+    color: white;
+    margin-left: 0%;
+    max-width: 58.5%;
+}
+
+.sentText
+{
+    background-color: #bb7620;
+    color: white;
+    float: right;
+    position: relative;
+    max-width: 57.5%;
+    top: 0;
+    right: 0;
+    bottom: 0;
 }

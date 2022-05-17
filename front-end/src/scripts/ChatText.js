@@ -2,6 +2,7 @@ import '../css/ChatText.css'
 
 const ChatText = (props) =>
 {
+<<<<<<< Updated upstream
     let MAINTANANCE_MODE = true
     
     
@@ -15,19 +16,28 @@ const ChatText = (props) =>
                 </p>
             </div>
         )
+=======
+    let displayData = props.data
+>>>>>>> Stashed changes
 
-    else
+    //renders the incoming contents
+    if (displayData.current_user.id !== displayData.message.sender.id) 
         return(
-            <div className='chatContent'>
-                <div className='avatar'>
+            <div className='bubbleContent'>
+                <div className='senderAvatar'>
 
                 </div>
-                <div className='text'>
-                    {props.data.sender}: {props.data.content}
-                </div>
+                
+                <p className='receivedText'>{displayData.message.content}</p>
             </div>
         )
-
+    
+    //renders the sent content by user
+    else return(
+        <div className='bubbleContent'>
+            <p className='sentText'>{displayData.message.content}</p>
+        </div>
+    )
 }
 
 export default ChatText
