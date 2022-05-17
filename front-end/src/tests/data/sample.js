@@ -25,7 +25,7 @@ const dtgram1 = {
     message: {
         sender: {
              id: 'def456',
-            display_name: 'Iris'
+            display_name: 'Iris🧡 Á À Ấ Ô Ố Ộ Ơ Ư Ứ'
         },
         content: 'Lorem ipsum dolor sit amet'
     }

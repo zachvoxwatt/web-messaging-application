@@ -26,11 +26,7 @@ body { background-color: #171717;}
 }
 
 .chatLog, .activeList, .inputBox { border-radius: 8px;}
-
-.chatLog, .activeList
-{
-    height: 100%;
-}
+.chatLog, .activeList { height: 100%; }
 
 .chatLog
 {
@@ -39,22 +35,17 @@ body { background-color: #171717;}
     margin-right: 1.25%;
     border-radius: 8px;
     width: 77.5%;
-    max-height: 
 }
 
 .chatLogScroll
-{
+{ 
+    overflow-x: hidden;
     overflow-y: auto;
-    width: 99%;
+    width: 98.5%;
     height: 100%;
-<<<<<<< Updated upstream
-    padding-top: 0.5%;
-=======
-    padding-top: 2%;
     padding-bottom: 0%;
->>>>>>> Stashed changes
-    margin-left: 0.25%;
-    margin-right: 0.25%;
+    margin-left: 1.2%;
+    margin-right: 1.2%;
 }
 
 .activeList
