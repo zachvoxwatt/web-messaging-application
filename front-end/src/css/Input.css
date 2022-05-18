@@ -1,15 +1,19 @@
-.lowerComp
+#textField
 {
-    float: left
+    background-color: #202020;
+    color: white;
+    display: flex;
+    font-family: sans-serif;
+    resize: none;
+    border-style: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-width: 0px;
+    border-radius: 8px;
+    padding: 1%;
+    font-size: 1em;
+    width: 80%;
+    height: 25%
 }
 
-.textInput
-{
-    background-color: orange;
-    margin: auto;
-    border-radius: 8px;
-    margin-top: 3vh;
-    margin-left: 1.875%;
-    width: 72.5vw;
-    height: 5vh;
-}
+#textField:focus { outline: none; }
