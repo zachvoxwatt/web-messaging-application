@@ -1,11 +1,12 @@
 import '../css/Input.css'
-import {checkLineNumbers, checkLongText} from './InputUtils'
+import {processComponent} from './InputUtils'
 
 const InputBox = (props) =>
 {
     return(
         <div className='inputBox'>
-            <textarea wrap='hard' type='text' id='textField' rows='3'></textarea>
+            <textarea wrap='hard' type='text' id='textField' onInput={(event) => {processComponent(event.target)}}></textarea>
+            <button id='sendButton'><span id='sendButtonSymbol'>✅</span></button>
         </div>
     )
 }

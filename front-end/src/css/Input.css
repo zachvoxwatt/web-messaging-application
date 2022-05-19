@@ -1,7 +1,8 @@
 #textField
 {
-    background-color: #202020;
-    color: white;
+    float: left;
+    background-color: white;
+    color: black;
     display: flex;
     font-family: sans-serif;
     resize: none;
@@ -13,7 +14,25 @@
     padding: 1%;
     font-size: 1em;
     width: 80%;
-    height: 25%
+}
+
+#sendButton
+{
+    background-color: #16c60c;
+    border-color: white;
+    border-style: solid;
+    margin-top: 1% auto;
+    margin-bottom: 1% auto;
+    margin-right: 1%;
+    margin-left: 10%;
+    border-radius: 8px;
+}
+
+#sendButtonSymbol
+{
+    font-size: 1.9rem;
+    margin-bottom: 2%;
+    color: white
 }
 
 #textField:focus { outline: none; }
