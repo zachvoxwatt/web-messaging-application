@@ -1,6 +1,7 @@
 import ChatLog from "./ChatLog"
-import InputBox from "./Input"
 import ActiveUsers from "./ActiveList"
+import InputBox from "./InputBox"
+import InputUtils from "./InputUtils"
 
 const ConversationScreen = (props) =>
 {   
@@ -11,7 +12,10 @@ const ConversationScreen = (props) =>
                 <ActiveUsers />
             </div>
             
-            <div className='lowerComp'><InputBox /></div>
+            <div className='lowerComp'>
+                <InputBox />
+                <InputUtils />
+            </div>
         </div>
     )
 }

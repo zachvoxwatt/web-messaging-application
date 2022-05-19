@@ -15,106 +15,55 @@ const data = {
 }
 */
 
+const current = { id: 'a', display_name: 'John' }
 
-const dtgram1 = {
-    current_user: {
-        id: 'abc123',
-        display_name: 'John'
+const dtgrams = [
+    {
+        sender: { id: 'a', display_name: 'John' },
+        contents: 'what u doing?'
     },
-
-    message: {
-        sender: {
-            id: 'def456',
-            display_name: 'Iris'
-        },
-        content: 'Lorem ipsum dolor sit amet'
-    }
-}
-
-const dtgram2 = {
-    current_user: {
-        id: 'abc123',
-        display_name: 'John'
+    {
+        sender: { id: 'b', display_name: 'Iris' },
+        contents: 'gaming 🎮'
     },
-
-    message: {
-        sender: {
-             id: 'abc123',
-            display_name: 'John'
-        },
-        content: '🥰💙💛😘🔥❣🧡🧡💗😍😉😙💕💟💌😚💓😊💓😚💌💟💕😙😉😍💗🧡❣🔥😘💛💙🥰❤☺💘💝💖😗💞🤗'
-    }
-}
-
-const dtgram3 = {
-    current_user: {
-        id: 'abc123',
-        display_name: 'John'
+    {
+        sender: { id: 'c', display_name: 'Plank' },
+        contents: 'fucking 💦'
     },
-
-    message: {
-        sender: {
-             id: 'def456',
-            display_name: 'Iris'
-        },
-        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Morbi tincidunt augue interdum velit. At risus viverra adipiscing at.'
-    }
-}
-
-const dtgram4 = {
-    current_user: {
-        id: 'abc123',
-        display_name: 'John'
+    {
+        sender: { id: 'a', display_name: 'John' },
+        contents: 'The heck John 🤨'
     },
-
-    message: {
-        sender: {
-             id: 'def456',
-            display_name: 'Iris'
-        },
-        content: 'abcdefghijklmnopqrstuvwxyz'
-    }
-}
-
-const dtgram5 = {
-    current_user: {
-        id: 'abc123',
-        display_name: 'John'
+    {
+        sender: { id: 'a', display_name: 'John' },
+        contents: 'we have kids watching this 🙂'
     },
-
-    message: {
-        sender: {
-             id: 'abc123',
-            display_name: 'John'
-        },
-        content: 'hello'
-    }
-}
-
-const dtgram6 = {
-    current_user: {
-        id: 'abc123',
-        display_name: 'John'
+    {
+        sender: { id: 'b', display_name: 'Iris' },
+        contents: 'I need to report you ⚠'
     },
-
-    message: {
-        sender: {
-             id: 'abc123',
-            display_name: 'John'
-        },
-        content: 'are you there'
-    }
-}
+    {
+        sender: { id: 'b', display_name: 'Iris' },
+        contents: 'you are doomed'
+    },
+    {
+        sender: { id: 'b', display_name: 'Iris' },
+        contents: 'die 😎'
+    },
+    {
+        sender: { id: 'c', display_name: 'Plank' },
+        contents: 'srsly guys?'
+    },
+    {
+        sender: { id: 'c', display_name: 'Plank' },
+        contents: 'what is wrong wit yo asses?\nespecially you John'
+    },
+]
 
 var datasets = []
 
-datasets.push(dtgram1)
-datasets.push(dtgram2)
-datasets.push(dtgram3)
-datasets.push(dtgram4)
-datasets.push(dtgram5)
-datasets.push(dtgram6)
+for (let i = 0; i < dtgrams.length; i++) datasets.push(dtgrams[i])
 
 const getData = (datano) => { return datasets[datano - 1] }
-
-export { getData }
+const getCurrentUser = () => { return current }
+export { getData, getCurrentUser }

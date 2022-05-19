@@ -2,27 +2,28 @@ import '../css/ChatText.css'
 
 const ChatText = (props) =>
 {
-    let displayData = props.data
-
+    let display_data = props.incoming
+    let current_user = props.current_user
+    
     //renders the incoming contents
-    if (displayData.current_user.id !== displayData.message.sender.id) 
+    if (current_user.id !== display_data.sender.id) 
         return(
             <div className='bubbleContent'>
                 <div className='senderNamePlaceholder'>
-                    <p className='senderName'>{displayData.message.sender.display_name}</p>
+                    <p className='senderName'>{display_data.sender.display_name}</p>
                 </div>
                 <div className='senderAvatar'>
 
                 </div>
                 
-                <p className='receivedText'>{displayData.message.content}</p>
+                <p className='receivedText'>{display_data.contents}</p>
             </div>
         )
     
     //renders the sent content by user
     else return(
         <div className='bubbleContent'>
-            <p className='sentText'>{displayData.message.content}</p>
+            <p className='sentText'>{display_data.contents}</p>
         </div>
     )
 }

@@ -1,17 +1,6 @@
-
-const processComponent = (component) =>
+const InputUtils = () =>
 {
-    if (line_count(component) <= 3)
-    {
-        component.style.height = "auto";
-        component.style.height = (component.scrollHeight * 66.5 / 100) + "px"
-    }
+    // To be developed
 }
 
-const line_count = (component) =>
-{
-    let array = component.value.split(/\r*\n/)
-    return array.length
-}
-
-export {processComponent}
+export default InputUtils

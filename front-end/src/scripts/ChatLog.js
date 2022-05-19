@@ -1,30 +1,23 @@
 import '../css/Conversation.css'
 import '../css/Scrollbar.css'
 import ChatText from '../scripts/ChatText'
-import {getData} from '../tests/data/sample'
+import {getCurrentUser, getData} from '../tests/data/sample'
 
 const ChatLog = (props) =>
 {
-    let d1 = getData(1)
-    let d2 = getData(3)
-
     return(
         <div className='chatLog' >
             <div className='chatLogScroll'>
-                <ChatText data={d1}/>
-                <ChatText data={d2}/>
-                <ChatText data={getData(4)}/>
-                <ChatText data={getData(2)}/>
-                <ChatText data={getData(5)}/>
-                <ChatText data={getData(6)}/>
-                <ChatText data={getData(2)}/>
-                <ChatText data={getData(2)}/>
-                <ChatText data={getData(2)}/>
-                <ChatText data={getData(2)}/>
-                <ChatText data={getData(2)}/>
-                <ChatText data={getData(2)}/>
-                <ChatText data={getData(2)}/>
-                <ChatText data={getData(2)}/>
+                <ChatText incoming={getData(1)} current_user={getCurrentUser()}/>
+                <ChatText incoming={getData(2)} current_user={getCurrentUser()}/>
+                <ChatText incoming={getData(3)} current_user={getCurrentUser()}/>
+                <ChatText incoming={getData(4)} current_user={getCurrentUser()}/>
+                <ChatText incoming={getData(5)} current_user={getCurrentUser()}/>
+                <ChatText incoming={getData(6)} current_user={getCurrentUser()}/>
+                <ChatText incoming={getData(7)} current_user={getCurrentUser()}/>
+                <ChatText incoming={getData(8)} current_user={getCurrentUser()}/>
+                <ChatText incoming={getData(9)} current_user={getCurrentUser()}/>
+                <ChatText incoming={getData(10)} current_user={getCurrentUser()}/>
             </div>
         </div>
     )

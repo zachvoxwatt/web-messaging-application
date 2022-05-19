@@ -27,6 +27,7 @@ body { background-color: #171717;}
     margin-left: 2.25%;
     margin-top: 1.25%;
     width: 74%;
+    height: 17.5%;
 }
 
 .chatLog, .activeList, .inputBox { border-radius: 8px;}
@@ -59,4 +60,9 @@ body { background-color: #171717;}
     float: left;
     margin-left: 1.25%;
     width: 20%;
+}
+
+.inputBox
+{
+    height: 100%;
 }

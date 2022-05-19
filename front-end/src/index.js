@@ -7,7 +7,8 @@ import ConversationScreen from './scripts/Conversation'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-root.render(
+root.render
+(
   <React.StrictMode>
     <ConversationScreen />
   </React.StrictMode>
