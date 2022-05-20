@@ -1,9 +1,22 @@
+// Server resources initialization
 const express = require('express')
 const server = express()
-const RUNNING_PORT = 1765
+const tets = require('./controllers/Database')
 
-server.listen(RUNNING_PORT, (e) => 
-{
-    console.log(`Server is operational at port ${RUNNING_PORT}`)
-    console.log(e)
-})
+// Load the config JSON
+const svcfg = require('./server-cfg')
+
+// Route declarations
+const loginRoute = require('./routes/Login')
+const registerRoute = require('./routes/Registration')
+
+// Middleware declarations
+server.use(express.urlencoded({extended: false}))
+server.use(express.json())
+
+// Bind routes to the declared ones
+server.use('/login', loginRoute)
+server.use('/register', registerRoute)
+
+// Run the server
+server.listen(svcfg.SERVER_PORT, (e) => { console.log(`Server is operational at port ${svcfg.SERVER_PORT}`)} )
