@@ -1,9 +1,7 @@
 const express = require('express')
 const router = express.Router()
+const processor = require('../controllers/Registration')
 
-router.post('/', (req, res, next) => {
-    console.log(req.body)
-    res.send("Under maintenance")
-})
+router.post('/', processor.register)
 
 module.exports = router
