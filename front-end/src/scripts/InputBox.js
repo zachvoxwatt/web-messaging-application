@@ -1,7 +1,12 @@
+<<<<<<< Updated upstream
+=======
+import { enterKeyPressed } from './utils/InputBoxHandler'
+>>>>>>> Stashed changes
 import '../css/InputBox.css'
 
 const InputBox = (props) =>
 {
+<<<<<<< Updated upstream
     const enterKeyPressed = (event) =>
     {
         let regexrule = /^\n*$/
@@ -21,6 +26,8 @@ const InputBox = (props) =>
         }
     }
 
+=======
+>>>>>>> Stashed changes
     return(
         <div className='inputSpace'>
             <div className='textBox'>
