@@ -78,7 +78,9 @@ body { background-color:  #171717;}
 }
 
 .regFields:focus::placeholder { transform: scale(0%); }
+
 #regUname { margin-top: 0% }
+
 #regConfPass { margin-bottom: 0%; }
 
 
@@ -102,6 +104,8 @@ body { background-color:  #171717;}
     height: 43.75%;
 }
 
+#createButt[disabled], #cancelButt[disabled], #createButt:hover[disabled], #cancelButt:hover[disabled], #createButt:active[disabled], #cancelButt:active[disabled] { background-color: #171717; }
+
 #createButt
 {
     background-color: #238636;
@@ -120,20 +124,15 @@ body { background-color:  #171717;}
 #cancelButt:hover { background-color: #c50000;}
 #cancelButt:active { background-color: #800000; }
 
-#errorWarn
-{
-    background-color: red;
-    width: 75%;
-    height: 10%;
-}
-
 #errorBox
 {
+    display: none;
     margin-left: auto;
     margin-right: auto;
     border-style: solid;
     border-color: white;
     background-color: #750000;
+    opacity: 0;
     margin-top: 1.25%;
     width: 30%;
     height: 10%;
@@ -142,8 +141,14 @@ body { background-color:  #171717;}
 
 #errorMsg
 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    vertical-align: middle;
     color: white;
+    font-size: 0.85em;
+    margin: 0;
     width: 100%;
     height: 100%;
 }

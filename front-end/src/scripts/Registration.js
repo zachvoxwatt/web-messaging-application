@@ -43,22 +43,9 @@ const RegisterScreen = () =>
                 </div>
             </div>
 
-            <div id='errorBox'><h5 id='errorMsg'>Warning</h5></div>
+            <div id='errorBox'><h5 id='errorMsg'>Lorem ipsum dolor sit amet</h5></div>
     </div>    
     )
-    /*
-    return(
-        <div className='registrationMaster'>
-            <h2 id='registerTitle'>User Registration</h2>
-            <div id='regForm'>
-                
-                
-                <div className='buttonsHolder'>
-                    
-                </div>
-            </div>
-        </div>
-    )*/
 }
 
 export default RegisterScreen
