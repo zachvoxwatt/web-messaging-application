@@ -1,4 +1,4 @@
-import { validateForm } from './utils/FormValidation'
+import { validateForm } from './utils/RegFormValidation'
 import { useState } from 'react'
 import '../css/Register.css'
 
