@@ -26,11 +26,16 @@ const validateForm = (params) =>
 
 const sendToBackend = (params) =>
 {
-    console.log(params)
+    if (params.name.trim() === '' && params.pass.trim() === '')
+    {
+        document.getElementById('loginButt').disabled = true
+        return
+    }
+
     const db_name = 'testing123'
     const db_pass = 'oppo66666'
 
-    if (params.name === db_name && params.pass === db_pass) console.log('permitted!')
+    if (params.name === db_name && params.pass === db_pass) console.log('Success!')
     else
     {
         let loginBox = document.getElementById('loginBoxID')
@@ -42,8 +47,6 @@ const sendToBackend = (params) =>
         inputFieldsHolder.style.height = '26.05%'
         loginButtonHolder.style.height = '8.5%'
         loginFailBox.style.display = 'block'
-
-        console.log('denied')
     }
 }
 

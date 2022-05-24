@@ -26,7 +26,9 @@ const LoginScreen = (props) =>
                     </div>
                 </div>
                 
-                <div className='loginButtonHolder' id='loginButtonHolderID'><button onClick={(event) => {sendToBackend(datagram)}} disabled id='loginButt'>Sign In</button></div>
+                <div className='loginButtonHolder' id='loginButtonHolderID'>
+                    <button onClick={(event) => {sendToBackend(datagram)}} id='loginButt'>Sign In</button>
+                </div>
 
                 <div className='loginFailBox' id='loginFailBoxID'><p id='loginFailMsg'>Login failed. No existing username or password matches your input</p></div>
             </div>
