@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { validateForm } from './utils/LoginFormValidation'
+import { validateForm, sendToBackend } from './utils/LoginFormValidation'
 import '../css/Login.css'
 
 const LoginScreen = (props) =>
@@ -20,14 +20,15 @@ const LoginScreen = (props) =>
 
                 <div className='inputFieldsHolder' id='loginFieldsID'>
                     <div className='inputForm'>    
-                        <input type='text' onInput={(event) => {set_loginname(event.target.value)}} className='logFields' id='loginUname' placeholder='Username goes here!'/>
-                        <input type='password' onInput={(event) => {set_loginpass(event.target.value)}} className='logFields' id='loginPass' placeholder="Password is hidden! Don't worry!"/>
+                        <input type='text' onInput={(event) => {set_loginname(event.target.value)}} onKeyUp={(e) => validateForm(datagram)} className='logFields' id='loginUname' placeholder='Username goes here!'/>
+                        
+                        <input type='password' onInput={(event) => {set_loginpass(event.target.value)}} onKeyUp={(e) => validateForm(datagram)} className='logFields' id='loginPass' placeholder="Password is hidden! Don't worry!"/>
                     </div>
                 </div>
                 
-                <div className='loginButtonHolder' id='loginButtonHolderID'><button onClick={(event) => {validateForm(datagram)}} id='actButt'>Sign In</button></div>
+                <div className='loginButtonHolder' id='loginButtonHolderID'><button onClick={(event) => {sendToBackend(datagram)}} disabled id='loginButt'>Sign In</button></div>
 
-                <div className='loginFailBox'><p id='loginFailMsg'>Login failed. No existing username or password matches your input</p></div>
+                <div className='loginFailBox' id='loginFailBoxID'><p id='loginFailMsg'>Login failed. No existing username or password matches your input</p></div>
             </div>
 
             <div className='reminderBox'>

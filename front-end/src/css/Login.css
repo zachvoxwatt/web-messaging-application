@@ -5,7 +5,7 @@ body { background-color: #171717; }
     font-family: sans-serif;
     margin: auto;
     width: 100vw;
-    height: 89vh
+    height: 89vh;
 }
 
 .loginBox
@@ -87,7 +87,7 @@ body { background-color: #171717; }
 
 .logFields:focus::placeholder { transform: translateX(20vw); }
 
-#actButt
+#loginButt
 {
     outline: none;
     background-color: #238636;
@@ -102,8 +102,10 @@ body { background-color: #171717; }
     width: 60%;
     height: 100%;
 }
-#actButt:hover { background-color: #2ea745; }
-#actButt:active { background-color: #238636; }
+#loginButt:hover { background-color: #2ea745; }
+#loginButt:active { background-color: #238636; }
+
+#loginButt[disabled], #loginButt:hover[disabled], #loginButt:active[disabled] { background-color: #238636; opacity: 0.5 }
 
 .loginFailBox
 {
