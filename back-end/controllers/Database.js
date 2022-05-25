@@ -2,6 +2,8 @@ const mysql = require('mysql2')
 const cfgInfo = require('../server-cfg')
 
 var connection
+
+//Test connection
 if (cfgInfo.LOCAL)
 {
     connection = mysql.createConnection(cfgInfo.MYSQL_LOCAL)

@@ -15,4 +15,5 @@ module.exports = {
         password: 'selfmadewebapp1337',
         database: 'vlashkia'
     },
+    BCRYPT_SALTS: 14
 }
