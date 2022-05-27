@@ -1,4 +1,5 @@
 module.exports = {
+    isLocal: false,
     MYSQL_LOCAL:
     {
         host: 'localhost',

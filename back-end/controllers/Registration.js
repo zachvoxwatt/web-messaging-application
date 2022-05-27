@@ -2,10 +2,13 @@ exports.register = async (req, res, next) =>
 {
     let logger = require('./EventLogger')
     let ip = req.connection.remoteAddress || req.headers['x-forwarded-for']
+    let { username, display_name, email, password } = req.body
+
+    console.log(req.body)
+
     let serverCfg = require('../server-cfg')
     let mysqlConnector = require('../controllers/Database')
     let mysqlQueries = require('./DBQuery')
-    let { username, display_name, email, password } = req.body
     let check_mail, check_name
 
     check_name = await mysqlConnector.query(mysqlQueries.CHECK_EXISTING_USERNAME, [username])
@@ -39,4 +42,9 @@ exports.register = async (req, res, next) =>
 
     res.send('Success! A new account has been created!')
     logger(`Back end server created a new account for client at ${ip}.`)
+}
+
+const validateDatagram = (datagram) =>
+{
+    return true
 }

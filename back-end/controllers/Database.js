@@ -5,7 +5,7 @@ const logger = require('./EventLogger')
 var connection
 
 //Test connection
-const isLocal = false //cfgInfo.REMOTE
+const isLocal = cfgInfo.isLocal //cfgInfo.REMOTE
 
 if (isLocal) connection = mysql.createConnection(cfgInfo.MYSQL_LOCAL)
 else connection = mysql.createConnection(cfgInfo.MYSQL_REMOTE)
