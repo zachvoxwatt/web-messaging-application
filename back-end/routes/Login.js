@@ -1,9 +1,7 @@
 const express = require('express')
 const router = express.Router()
+const processor = require('../controllers/Login')
 
-router.post('/', (req, res, next) => {
-    console.log(req.body)
-    res.send('This is the login page')
-})
+router.post('/', processor.login)
 
 module.exports = router

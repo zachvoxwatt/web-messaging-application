@@ -1,6 +1,4 @@
 module.exports = {
-    LOCAL: true,
-    SERVER_PORT: 3001,
     MYSQL_LOCAL:
     {
         host: 'localhost',
@@ -15,5 +13,6 @@ module.exports = {
         password: 'selfmadewebapp1337',
         database: 'vlashkia'
     },
-    BCRYPT_SALTS: 14
+    BCRYPT_SALTS: 14,
+    SERVER_PORT: 3001
 }

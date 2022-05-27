@@ -1,7 +1,8 @@
 // Server resources initialization
+const logger = require('./controllers/EventLogger')
 const express = require('express')
 const server = express()
-const tets = require('./controllers/Database')
+const db = require('./controllers/Database')
 
 // Load the config JSON
 const svcfg = require('./server-cfg')
@@ -19,4 +20,4 @@ server.use('/login', loginRoute)
 server.use('/register', registerRoute)
 
 // Run the server
-server.listen(svcfg.SERVER_PORT, (e) => { console.log(`Server is operational at port ${svcfg.SERVER_PORT}`)} )
+server.listen(svcfg.SERVER_PORT, (e) => { logger(`Server is operational at port ${svcfg.SERVER_PORT}`)} )

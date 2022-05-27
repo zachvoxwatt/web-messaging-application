@@ -1,3 +1,3 @@
-const logEvent = (message) => { console.log(message) }
+const logEvent = (message) => { console.log('[EVENT] ' + message) }
 
 module.exports = logEvent
