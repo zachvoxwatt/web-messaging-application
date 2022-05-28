@@ -8,8 +8,8 @@ const LoginScreen = (props) =>
     const [loginpass, set_loginpass] = useState('')
 
     const datagram = {
-        name: loginname,
-        pass: loginpass
+        userName: loginname,
+        userPassword: loginpass
     }
 
     return(

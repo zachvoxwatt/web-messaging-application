@@ -1,7 +1,7 @@
 const validateForm = (params) =>
 {
-    let samp_name = Array.from(params.name)
-    let samp_pass = Array.from(params.pass)
+    let samp_name = Array.from(params.userName)
+    let samp_pass = Array.from(params.userPassword)
     
     let name_valid = false
     let pass_valid = false
