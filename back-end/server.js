@@ -20,4 +20,4 @@ server.use('/login', loginRoute)
 server.use('/register', registerRoute)
 
 // Run the server
-server.listen(svcfg.SERVER_PORT, (e) => { logger(`Server is operational at port ${svcfg.SERVER_PORT}`)} )
+server.listen(svcfg.SERVER_PORT, (e) => { db.testConnection(); logger(`Server is operational at port ${svcfg.SERVER_PORT}`)} )
