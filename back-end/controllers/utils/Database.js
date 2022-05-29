@@ -1,5 +1,5 @@
 const logger = require('./EventLogger')
-const cfgInfo = require('../server-cfg')
+const cfgInfo = require('../../server-cfg')
 const mysql = require('mysql2')
 const isLocal = cfgInfo.isLocal //cfgInfo.REMOTE
 

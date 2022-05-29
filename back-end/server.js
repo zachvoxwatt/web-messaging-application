@@ -1,8 +1,8 @@
 // Server resources initialization
-const logger = require('./controllers/EventLogger')
+const logger = require('./controllers/utils/EventLogger')
 const express = require('express')
 const server = express()
-const db = require('./controllers/Database')
+const db = require('./controllers/utils/Database')
 
 // Load the config JSON
 const svcfg = require('./server-cfg')
