@@ -28,35 +28,35 @@ const dtgrams = [
     },
     {
         sender: { id: 'c', display_name: 'Plank' },
-        contents: 'fucking 💦'
+        contents: 'cooking 💦'
     },
     {
         sender: { id: 'a', display_name: 'John' },
-        contents: 'The heck John 🤨'
+        contents: 'Wow John 😮'
     },
     {
         sender: { id: 'a', display_name: 'John' },
-        contents: 'we have kids watching this 🙂'
+        contents: 'I did not know you cook 🙂'
     },
     {
         sender: { id: 'b', display_name: 'Iris' },
-        contents: 'I need to report you ⚠'
+        contents: 'Will you cook for us'
     },
     {
         sender: { id: 'b', display_name: 'Iris' },
-        contents: 'you are doomed'
+        contents: 'pls'
     },
     {
         sender: { id: 'b', display_name: 'Iris' },
-        contents: 'die 😎'
+        contents: '💗'
     },
     {
         sender: { id: 'c', display_name: 'Plank' },
-        contents: 'srsly guys?'
+        contents: 'fo sho guys'
     },
     {
         sender: { id: 'c', display_name: 'Plank' },
-        contents: 'what is wrong wit yo asses?\nespecially you John'
+        contents: 'meet me up at Saturday. Carbonara Spaghetti are coming thru'
     },
 ]
 

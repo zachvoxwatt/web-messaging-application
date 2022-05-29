@@ -3,12 +3,14 @@ import ActiveUsers from "./ActiveList"
 import InputBox from "./InputBox"
 
 const ConversationScreen = (props) =>
-{   
+{
+    console.log(props)
+
     return(
         <div className='convoHolder'>
             <div className='upperComp'>
-                <ChatLog />
-                <ActiveUsers />
+                <ChatLog incoming={props.messages}/>
+                <ActiveUsers incoming={props.connected_users}/>
             </div>
             
             <div className='lowerComp'>

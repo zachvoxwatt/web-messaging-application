@@ -5,6 +5,8 @@ import {getCurrentUser, getData} from '../tests/data/sample'
 
 const ChatLog = (props) =>
 {
+    
+
     return(
         <div className='chatLog' >
             <div className='chatLogScroll'>
