@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Navigate } from 'react-router-dom'
 import { validateForm, sendToBackend } from './utils/LoginFormValidation'
 import '../css/Login.css'
 
@@ -6,7 +7,9 @@ const LoginScreen = (props) =>
 {
     const [loginname, set_loginname] = useState('')
     const [loginpass, set_loginpass] = useState('')
-
+ 
+    if (props.session.authenticated) return <Navigate to='/app'/>
+    
     const datagram = {
         userName: loginname,
         userPassword: loginpass

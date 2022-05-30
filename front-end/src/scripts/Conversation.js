@@ -1,10 +1,11 @@
+import { Navigate } from "react-router-dom"
 import ChatLog from "./ChatLog"
 import ActiveUsers from "./ActiveList"
 import InputBox from "./InputBox"
 
 const ConversationScreen = (props) =>
 {
-    console.log(props)
+    if (!props.session.authenticated) return <Navigate to='/login'/>
 
     return(
         <div className='convoHolder'>
