@@ -7,29 +7,49 @@ body { background-color:  #171717;}
 
 .registrationMaster
 {
+    width: 100vw;
+    height: 89vh
+}
+
+#infoBox
+{
     background-color: #363636;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: none;
+    margin-top: 2.5%;
+    padding-top: 0.01%;
     border-radius: 16px;
     border-width: 0px;
-    padding-top: 2.5vh;
-    padding-bottom: 7.5vh;
-    margin-top: 15vh;
     width: 30%;
-    height: 50%
+    height: 80%;
 }
 
 #registerTitle
 {
     color: white;
     text-align: center;
-    font-size: 250%
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 250%;
+    width: 100%;
+    height: 10%;
+}
+
+
+#fieldsBox
+{   
+    width: 100%;
+    height: 44.5%;
 }
 
 #regForm
 {
-    margin: auto;
-    width: 55%;
-    height: 80%
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 60%;
+    height: 100%;
 }
 
 .regFields
@@ -37,16 +57,19 @@ body { background-color:  #171717;}
     outline: none;
     background-color: #171717;
     color: white;
-    padding-left: 0.5vw;
-    padding-right: 0.5vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.5%;
+    margin-bottom: 1.5%;
+    padding-left: 2%;
+    padding-right: 2%;
     font-size: 0.95em;
-    border-radius: 8px;
+    border-radius: 7px;
     border-width: 0px;
-    margin-top: 0.5vh;
-    margin-bottom: 0.5vh;
-    width: 93.7%;
-    height: 5vh;
+    width: 96%;
+    height: 16.75%;
 }
+::-ms-reveal { filter: invert(100%) }
 
 .regFields::placeholder
 {
@@ -56,9 +79,19 @@ body { background-color:  #171717;}
 
 .regFields:focus::placeholder { transform: scale(0%); }
 
-#regUname { margin-top: 0}
+#regUname { margin-top: 0% }
 
-.buttonsHolder { margin-top: 5vh }
+#regConfPass { margin-bottom: 0%; }
+
+
+#buttonsHolder
+{
+    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 8%;
+    width: 100%;
+    height: 15%;
+}
 
 #createButt, #cancelButt
 {
@@ -67,14 +100,16 @@ body { background-color:  #171717;}
     color: white;
     border-radius: 4px;
     border-width: 0px;
-    width: 100%;
-    height: 4vh;
+    width: 60%;
+    height: 43.75%;
 }
+
+#createButt[disabled], #cancelButt[disabled], #createButt:hover[disabled], #cancelButt:hover[disabled], #createButt:active[disabled], #cancelButt:active[disabled] { background-color: #171717; }
 
 #createButt
 {
     background-color: #238636;
-    margin-bottom: 1vh;
+    margin-bottom: 1%;
 }
 
 #createButt:hover { background-color: #2ea745; }
@@ -83,65 +118,37 @@ body { background-color:  #171717;}
 #cancelButt
 {
     background-color: #800000;
+    margin-top: 1%;
 }
 
 #cancelButt:hover { background-color: #c50000;}
 #cancelButt:active { background-color: #800000; }
-/*
-.registrationMaster
+
+#errorBox
 {
-    background-color: #26619c;
-    margin: auto;
-    margin-top: 10vh;
+    display: none;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: solid;
+    border-color: white;
+    background-color: #750000;
+    opacity: 0;
+    margin-top: 1.25%;
     width: 30%;
-    height: 75%
-}
-
-.inputHolder
-{
-    margin: auto;
-    text-align: center;
-    display: inline-block;
-    padding-top: 1vh;
-    padding-bottom: 6vh;
+    height: 10%;
     border-radius: 16px;
-    width: 100%;
-    height: 70%;
 }
 
-form
+#errorMsg
 {
-    display: inline-block;
-    margin: auto;
-    position: relative
-}
-
-#registerTitle
-{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    vertical-align: middle;
     color: white;
-    font-size: 250%
+    font-size: 0.85em;
+    margin: 0;
+    width: 100%;
+    height: 100%;
 }
-
-input:not(#regConfPass)
-{
-    margin-top: 1vh;
-    margin-bottom: 1vh;
-}
-
-input::placeholder
-{
-    position: absolute;
-    color: #666666;
-    top: 1.8vh;
-    font-size: 0.8rem;
-    transition: transform 0.2s ease-in-out;
-}
-
-input:focus::placeholder { transform: scale(0%); }
-
-button
-{
-
-}
-*/

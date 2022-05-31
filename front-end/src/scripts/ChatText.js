@@ -2,31 +2,30 @@ import '../css/ChatText.css'
 
 const ChatText = (props) =>
 {
-    let MAINTANANCE_MODE = true
-    console.log(props)
+    let display_data = props.incoming
+    let current_user = props.current_user
     
-    if (!MAINTANANCE_MODE)
+    //renders the incoming contents
+    if (current_user.id !== display_data.sender.id) 
         return(
-            <div className='chatContent'>
-                <p>
-                    Incoming message! Sender is: {props.data.sender}<br/>
-                    Content as follow: {props.data.content}
-                </p>
-            </div>
-        )
-
-    else
-        return(
-            <div className='chatContent'>
-                <div className='avatar'>
+            <div className='bubbleContent'>
+                <div className='senderNamePlaceholder'>
+                    <p className='senderName'>{display_data.sender.display_name}</p>
+                </div>
+                <div className='senderAvatar'>
 
                 </div>
-                <div className='text'>
-                    {props.data.sender}: {props.data.content}
-                </div>
+                
+                <p className='receivedText'>{display_data.contents}</p>
             </div>
         )
-
+    
+    //renders the sent content by user
+    else return(
+        <div className='bubbleContent'>
+            <p className='sentText'>{display_data.contents}</p>
+        </div>
+    )
 }
 
 export default ChatText

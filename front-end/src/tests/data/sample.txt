@@ -1,0 +1,19 @@
+JG.repeat(5, 10, {
+  current_user:
+  {
+    id: JG.objectId(),
+    display_name: `${JG.firstName()} ${JG.lastName()}`
+  },
+  message:
+  {
+    sender:
+    {
+      id: JG.objectId(),
+      display_name: `${JG.firstName()} ${JG.lastName()}`
+    },
+    contents: JG.loremIpsum({ units: 'sentences', count: JG.integer(1, 5)})
+  }
+});
+
+
+Used for 'https://app.json-generator.com/'
