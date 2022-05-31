@@ -4,10 +4,12 @@ exports.login = async (req, res, next) =>
     let getConnectedIPv4 = require('./utils/RequestIPGetter')
     let { validateLoginDatagram } = require('./utils/DatagramValidation')
 
+    let returnDtgram = { message: '' }
     let validateResults = validateLoginDatagram(req.body)
     if (!validateResults.allowed)
     {
-        res.send('Access Denied! Your credentials are incorrect!')
+        returnDtgram.message = 'Access Denied! Your credentials are incorrect!'
+        res.send(returnDtgram)
         logger(`A client @ ${getConnectedIPv4(req)} failed to sign in. Reason: Prohibited special characters or spacings exist in either or both fields.`)
         return
     }
@@ -26,13 +28,15 @@ exports.login = async (req, res, next) =>
         bcrypt.compare(userPassword, results[0][0].userPassword).then((result) => {
             if (result)
             {
-                res.send('welcome!')
+                returnDtgram.message = 'Welcome!'
+                res.status(200).send(returnDtgram)
                 logger(`A client @ ${getConnectedIPv4(req)} successfully signed in.`)
             }
 
             else
             {
-                res.send('Access Denied! Your credentials are incorrect!')
+                returnDtgram.message = 'Access Denied! Your credentials are incorrect!'
+                res.send(returnDtgram)
                 logger(`A client @ ${getConnectedIPv4(req)} failed to sign in. Reason: Incorrect credentials`)
             }
         })
@@ -40,7 +44,8 @@ exports.login = async (req, res, next) =>
 
     else
     {
-        res.send('Access Denied! Your credentials are incorrect!')
+        returnDtgram.message = 'Access Denied! Your credentials are incorrect!'
+        res.send(returnDtgram)
         logger(`A client @ ${getConnectedIPv4(req)} failed to sign in. Reason: Unknown credentials`)
     }
 }

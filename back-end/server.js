@@ -1,6 +1,7 @@
 // Server resources initialization
 const logger = require('./controllers/utils/EventLogger')
 const express = require('express')
+const cors = require('cors')
 const https = require('https')
 const { Server } = require('socket.io')
 const expressServer = express()
@@ -16,6 +17,7 @@ const registerRoute = require('./routes/Registration')
 const postTextRoute = require('./routes/PostText')
 
 // Middleware declarations
+expressServer.use(cors())
 expressServer.use(express.urlencoded({extended: false}))
 expressServer.use(express.json())
 
