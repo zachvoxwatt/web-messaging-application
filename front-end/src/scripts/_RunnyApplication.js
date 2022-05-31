@@ -6,11 +6,9 @@ import { Route, Routes, Navigate } from 'react-router-dom'
 
 const RunnyApplication = () =>
 {
-    const defaultState = {
-        authenticated: false
-    }
+    const iniSession = { authenticated: false }
 
-    const [state, setState] = useState(defaultState)
+    const [state, setState] = useState(iniSession)
 
     return(
         <div>

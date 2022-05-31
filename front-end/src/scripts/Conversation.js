@@ -5,8 +5,11 @@ import InputBox from "./InputBox"
 
 const ConversationScreen = (props) =>
 {
-    if (!props.session.authenticated) return <Navigate to='/login'/>
-
+    if (!props.session.authenticated)
+    {
+        console.log(props.session)
+        return <Navigate to='/login'/>
+    }
     return(
         <div className='convoHolder'>
             <div className='upperComp'>
