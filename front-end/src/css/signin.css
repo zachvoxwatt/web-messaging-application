@@ -1,0 +1,73 @@
+body
+{
+  background-color: #171717;
+  margin: 0
+}
+
+.signinMain
+{
+  text-align: center;
+}
+
+#signinTitle
+{
+  color: white;
+  font-size: 2.5em;
+}
+
+.signinForm
+{
+  border-style: none;
+  background-color: #373737;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+  width: 350px;
+  padding-top: 35px;
+  padding-bottom: 35px
+}
+
+#signinField
+{
+  border-style: none;  
+  text-align: center;
+  border-radius: 8px;
+  width: 272px;
+  height: 45px;
+  font-size: 1em;
+  margin-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px
+}
+
+#signinField:focus { outline: none;}
+
+#signinField::placeholder
+{
+  text-align: center;
+  font-size: 0.9em;
+  transition: transform 0.25s ease-in-out;
+  -webkit-animation: fade 5s ease-in-out;
+  -moz-animation: fade 5s ease-in-out;
+  -o-animation: fade 5s ease-in-out;
+  -ms-animation: fade 5s ease-in-out;
+  animation: fade 5s ease-in-out;
+}
+
+#signinField:focus::placeholder { transform: scale(0%); }
+
+#signinButton
+{
+  font-weight: bold;
+  border-style: none;
+  color: white;
+  background-color: #238636;
+  border-radius: 4px;
+  margin-top: 5px;
+  font-size: 0.8em;
+  width: 292px;
+  height: 25px
+}
+
+#signinButton:hover { background-color: #2ea745; }
+#signinButton:active { background-color: #238636; }
