@@ -4,10 +4,7 @@ body
   margin: 0
 }
 
-.signinMain
-{
-  text-align: center;
-}
+.signinMain { text-align: center; }
 
 #signinTitle
 {
@@ -15,12 +12,36 @@ body
   font-size: 2.5em;
 }
 
-.signinForm
+.signinNotice
 {
-  border-style: none;
-  background-color: #373737;
+  border-style: solid;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-width: 1px;
+  border-radius: 8px;
+  width: 350px;
+}
+
+#signinMsg
+{
+  color: white;
+  font-size: 0.85em;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.signinForm
+{
+  border-style: solid;
+  border-color: #373737;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  border-width: 1px;
   border-radius: 8px;
   width: 350px;
   padding-top: 35px;
@@ -33,7 +54,7 @@ body
   text-align: center;
   border-radius: 8px;
   width: 272px;
-  height: 45px;
+  height: 42px;
   font-size: 1em;
   margin-bottom: 5px;
   padding-left: 10px;
@@ -47,11 +68,6 @@ body
   text-align: center;
   font-size: 0.9em;
   transition: transform 0.25s ease-in-out;
-  -webkit-animation: fade 5s ease-in-out;
-  -moz-animation: fade 5s ease-in-out;
-  -o-animation: fade 5s ease-in-out;
-  -ms-animation: fade 5s ease-in-out;
-  animation: fade 5s ease-in-out;
 }
 
 #signinField:focus::placeholder { transform: scale(0%); }
