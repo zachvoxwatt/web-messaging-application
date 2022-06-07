@@ -76,6 +76,7 @@ body
 {
   font-weight: bold;
   border-style: none;
+  border-width: 0px;
   color: white;
   background-color: #238636;
   border-radius: 4px;
@@ -87,3 +88,8 @@ body
 
 #signinButton:hover { background-color: #2ea745; }
 #signinButton:active { background-color: #238636; }
+#signinButton[disabled], #signinButton:active[disabled], #signinButton:hover[disabled] 
+{ 
+  background-color: #238636; 
+  opacity: 0.5;
+}

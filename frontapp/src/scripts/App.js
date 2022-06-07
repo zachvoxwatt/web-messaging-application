@@ -1,4 +1,4 @@
-//import SigninWidget from './login';
+//import SigninWidget from './signin';
 import ChatWidget from './chat';
 
 const ExecutingApplication = () => {

@@ -2,20 +2,20 @@ import React, { useState } from "react"
 import axios from '../api/axios'
 import '../css/signin.css'
 
-const noticeStyles = [
-    {// error
+const noticeStyles = {
+    error: {
         background: '#382328',
         borderColor: '#853535'
     },
-    {// wait
+    wait: {
         background: '#26619c',
         borderColor: '#87cefa'
     },
-    {// success
+    success: {
         background: '#2e8b57',
         borderColor: '#3cb371'
     }
-]
+}
 
 const SigninWidget = () =>
 {
@@ -29,11 +29,16 @@ const SigninWidget = () =>
         else {
             set_status('wait')
             set_statusmsg('Connecting...')
+            document.getElementById('signinButton').disabled = true
         }
 
         axios.get('/pingSv')
         .then(result => { set_status('success'); set_statusmsg('Success!') })
-        .catch(err => { set_status('error'); set_statusmsg("Connection failed. Reason: The service is OFFLINE!") })
+        .catch(err => { 
+            document.getElementById('signinButton').disabled = false
+            set_status('error') 
+            set_statusmsg("Connection failed. Reason: The service is OFFLINE!") 
+        })
     }
 
     const validateSuccess = (sample) =>
@@ -59,21 +64,21 @@ const SigninWidget = () =>
 
             {
                 status === 'error' &&
-                <div className='signinNotice' style={noticeStyles[0]}>
+                <div className='signinNotice' style={noticeStyles.error}>
                     <h4 id='signinMsg'>{statusmsg}</h4>
                 </div> 
             }
 
             {
                 status === 'wait' &&
-                <div className='signinNotice' style={noticeStyles[1]}>
+                <div className='signinNotice' style={noticeStyles.wait}>
                     <h4 id='signinMsg'>{statusmsg}</h4>
                 </div> 
             }
 
             {
                 status === 'success' &&
-                <div className='signinNotice' style={noticeStyles[2]}>
+                <div className='signinNotice' style={noticeStyles.success}>
                     <h4 id='signinMsg'>{statusmsg}</h4>
                 </div> 
             }
