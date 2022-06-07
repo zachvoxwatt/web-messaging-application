@@ -1,0 +1,74 @@
+body
+{
+  background-color: #171717;
+  margin: 0
+}
+
+.chatMain 
+{ 
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 840px;
+    height: 690px;
+}
+
+.chatDisplayComp
+{
+    background-color: #373737;
+    width: 840px;
+    height: 644px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+#chatUtils
+{
+    border-style: solid;
+    border-color: #373737;
+    border-width: 1px;
+    background-color: #272727;
+    width: 838px;
+    height: 40px;
+    border-radius: 8px 8px 0px 0px;
+}
+
+#chatAppInfo 
+{ 
+    margin-bottom: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#chatAppAuthor, #chatAppIntro { text-align: center; margin: 0 } 
+#chatAppIntro
+{
+    color: white;
+    font-family: sans-serif;
+}
+
+#chatAppAuthor
+{
+    color: white;
+    font-style: italic;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#chatScrollerComp
+{
+    background-color: transparent;
+    overflow: auto;
+    overflow-x: hidden;
+    width: 840px;
+    height: 602px;
+    border-radius: 0px 0px 8px 8px;
+}
+
+.chatInputComp
+{
+    background-color: #272727;
+    border-radius: 8px;
+    width: 840px;
+    height: 46px;
+}
