@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
-const processor = require('../controllers/Login')
+const processor = require('../controllers/Pinger')
 
-router.post('/', processor.login)
+router.get('/', processor.ping)
 
 module.exports = router
