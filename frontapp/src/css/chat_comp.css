@@ -11,14 +11,14 @@ body
     margin-top: 10px;
     margin-bottom: 10px;
     width: 840px;
-    height: 690px;
+    height: 97vh;
 }
 
 .chatDisplayComp
 {
     background-color: #373737;
     width: 840px;
-    height: 644px;
+    height: 77.5vh;
     margin-bottom: 10px;
     border-radius: 8px;
 }
@@ -61,7 +61,7 @@ body
     overflow: auto;
     overflow-x: hidden;
     width: 840px;
-    height: 602px;
+    height: 71.7vh;
     border-radius: 0px 0px 8px 8px;
 }
 
@@ -70,6 +70,7 @@ body
     background-color: #272727;
     border-radius: 8px;
     width: 840px;
+    max-height: 22.5vh
 }
 
 .chatInputUtils { width: 840px }
