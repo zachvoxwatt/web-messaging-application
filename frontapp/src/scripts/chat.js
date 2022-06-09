@@ -7,6 +7,11 @@ const randomarr = ['Hello!', 'Hi!', 'What brings you here today?', 'Just a norma
 
 const ChatWidget = () =>
 {
+    window.onload = () =>
+    {
+        scrollToBottom()
+    }
+
     const updateInputBox = (event) =>
     {
         event.target.scrollTop = event.target.scrollHeight
@@ -15,6 +20,12 @@ const ChatWidget = () =>
 
         if (event.target.value.trim().length === 0) document.getElementById('chatInputSendButton').disabled = true
         else document.getElementById('chatInputSendButton').disabled = false
+    }
+
+    const scrollToBottom = () =>
+    {
+        let component = document.getElementById('chatInputBox')
+        component.scrollTop = component.scrollHeight
     }
 
     const enterKeyPressed = (event) =>
@@ -67,7 +78,7 @@ const ChatWidget = () =>
 
             <div className='chatInputComp'>
                 <div className='chatInputUtils'>
-                    <textarea rows='1' id='chatInputBox' onKeyDown={(event) => enterKeyPressed(event)} onChange={(event) => { updateInputBox(event) }}></textarea>
+                    <textarea rows='1' id='chatInputBox' onKeyDown={(event) => enterKeyPressed(event)} onLoad={event => {scrollToBottom()}} onChange={(event) => { updateInputBox(event) }}></textarea>
                     <button id='chatInputSendButton' onClick={(e) => sendText()}>Send</button>
                 </div>
                 <p id='chatInputTips'>Here is a tip! To send a text, press 'ENTER' or simply press that obvious button over there!<br/>To break a line, use 'SHIFT' and 'ENTER' combination!</p>
