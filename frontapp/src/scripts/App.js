@@ -1,10 +1,18 @@
-//import SigninWidget from './signin';
-import ChatWidget from './chat';
+import SigninWidget from './signin';
+import ChatDisplayWidget from './chat_display';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 const ExecutingApplication = () => {
   return (
     <div>
-      <ChatWidget />
+      <BrowserRouter>
+        <Routes>
+          <Route path='/'>
+            <Route path='join' element={<SigninWidget />}></Route>
+            <Route path='texttime' element={<ChatDisplayWidget />}></Route> 
+          </Route>
+        </Routes>    
+      </BrowserRouter>
     </div>
   )
 }

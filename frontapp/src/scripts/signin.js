@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import axios from '../api/axios'
 import '../css/signin.css'
 
@@ -22,8 +23,9 @@ const SigninWidget = () =>
     const [name, set_name] = useState('')
     const [status, set_status] = useState('none')
     const [statusmsg, set_statusmsg] = useState('Connecting...')
+    const nav = useNavigate()
 
-    const signIn = () => {
+    const signIn = async () => {
         let result = validateSuccess(name)
         if (!result.success) return
         else {
@@ -32,8 +34,15 @@ const SigninWidget = () =>
             document.getElementById('signinButton').disabled = true
         }
 
-        axios.get('/pingSv')
-        .then(result => { set_status('success'); set_statusmsg('Success!') })
+        await axios.get('/pingSv')
+        .then(result => {
+            if (result.data.isOnline)
+            {    
+                set_status('success')
+                set_statusmsg('Success')
+                redirectToApp()
+            }
+        })
         .catch(err => { 
             document.getElementById('signinButton').disabled = false
             set_status('error') 
@@ -57,6 +66,8 @@ const SigninWidget = () =>
 
         return result
     }
+
+    const redirectToApp = () => { setTimeout(() => { nav('/texttime') }, 2000) }
 
     return(
         <div className="signinMain">
