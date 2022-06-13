@@ -4,11 +4,11 @@ const ChatInputWidget = (props) =>
 {
     const sendText = async (data) => 
     {
-        let contents
-        if (data) contents = data
-        else contents = document.getElementById('chatInputBox').value
+        let contents = {message: '', userID: ''}
+        if (data) contents.message = data
+        else contents.message = document.getElementById('chatInputBox').value
 
-        if (contents.trim().length === 0) { document.getElementById('chatInputSendButton').disabled = true; return }
+        if (contents.message.trim().length === 0) { document.getElementById('chatInputSendButton').disabled = true; return }
         else document.getElementById('chatInputSendButton').disabled = false
 
         await axios.post('/sendToBackend', (contents)).then(r => { console.log('message sent successfully')})
