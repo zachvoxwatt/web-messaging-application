@@ -1,5 +1,5 @@
 const mysql = require('../configs/database')
-const dbquery = require('../utils/db_queries')
+const dbquery = require('../utils/dbQueries')
 const jwt = require('jsonwebtoken')
 
 exports.refresher = async (req, res, next) =>

@@ -20,7 +20,7 @@ expressServer.use(cookieParser())
 expressServer.use(cors())
 
 // Initialize the routes
-expressServer.use('/pingSv', require('./routes/pingRoute'))
+expressServer.use('/pingsv', require('./routes/pingRoute'))
 expressServer.use('/sendtobackend', require('./routes/postTextRoute'))
 expressServer.use('/joinapp', require('./routes/joinRoute'))
 expressServer.use('/leaveapp', require('./routes/leaveRoute'))

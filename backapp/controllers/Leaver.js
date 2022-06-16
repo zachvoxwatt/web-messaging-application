@@ -1,5 +1,5 @@
 const mysql = require('../configs/database')
-const dbquery = require('../utils/db_queries')
+const dbquery = require('../utils/dbQueries')
 
 exports.leaver = async (req, res, next) =>
 {   
