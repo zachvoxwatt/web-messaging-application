@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { useNavigate } from "react-router-dom"
+//import { useNavigate } from "react-router-dom"
 import axios from '../api/axios'
 import '../css/signin.css'
 
@@ -23,7 +23,7 @@ const SigninWidget = () =>
     const [name, set_name] = useState('')
     const [status, set_status] = useState('none')
     const [statusmsg, set_statusmsg] = useState('Connecting...')
-    const nav = useNavigate()
+//    const nav = useNavigate()
 
     const signIn = async () => {
         let result = validateSuccess(name)
@@ -34,19 +34,30 @@ const SigninWidget = () =>
             document.getElementById('signinButton').disabled = true
         }
 
-        await axios.get('/pingSv')
+        await axios.get('/pingsv')
         .then(result => {
-            if (result.data.isOnline)
-            {    
-                set_status('success')
-                set_statusmsg('Success')
-                redirectToApp()
-            }
+            if (result.data.isOnline) set_statusmsg('Validating...')
         })
         .catch(err => { 
             document.getElementById('signinButton').disabled = false
             set_status('error') 
-            set_statusmsg("Connection failed. Reason: The service is OFFLINE!") 
+            set_statusmsg("Connection failed. Reason: The service is OFFLINE!")
+            return
+        })
+
+        await axios.post('/joinapp', { displayName: name })
+        .then(result => {
+            console.log(result.data)
+            set_status('success')
+            set_statusmsg('Successfully joined!')
+        })
+        .catch(err => {
+            set_status('error')
+            set_statusmsg(`The name '${name}' has been taken by someone else. Please use another name!`)
+            return
+        })
+        .finally(() => {
+            document.getElementById('signinButton').disabled = false
         })
     }
 
@@ -67,7 +78,7 @@ const SigninWidget = () =>
         return result
     }
 
-    const redirectToApp = () => { setTimeout(() => { nav('/texttime') }, 2000) }
+   // const redirectToApp = () => { setTimeout(() => { nav('/texttime') }, 2000) }
 
     return(
         <div className="signinMain">
