@@ -22,7 +22,7 @@ body
     border-radius: 8px;
 }
 
-#chatUtils
+#chatDisplayUtils
 {
     border-style: solid;
     border-color: #373737;
@@ -32,6 +32,32 @@ body
     height: 40px;
     border-radius: 8px 8px 0px 0px;
 }
+
+#chatLeaveButton
+{
+    float: right;
+    outline: none;
+    color: white;
+    background-color: crimson;
+    font-size: 1em;
+    border-radius: 8px;
+    border-width: 0px;
+    margin: 3px 15px 0px 0px;
+    padding: 8px 10px 8px 10px;
+}
+#chatLeaveButton:hover
+{
+    color: crimson;
+    background-color: white;
+}
+
+#chatLeaveButton:active
+{
+    color: #900603;
+    background-color: #afafaf;
+}
+
+#chatLeaveButton:focus { outline: none;}
 
 #chatAppInfo 
 { 

@@ -1,5 +1,6 @@
-import React, { useState } from "react"
-//import { useNavigate } from "react-router-dom"
+import React, { useContext, useState } from "react"
+import { useNavigate } from "react-router-dom"
+import AuthContext from "../context/AuthProvider"
 import axios from '../api/axios'
 import '../css/signin.css'
 
@@ -20,10 +21,11 @@ const noticeStyles = {
 
 const SigninWidget = () =>
 {
+    const { setAuth } = useContext(AuthContext) 
     const [name, set_name] = useState('')
     const [status, set_status] = useState('none')
     const [statusmsg, set_statusmsg] = useState('Connecting...')
-//    const nav = useNavigate()
+    const nav = useNavigate()
 
     const signIn = async () => {
         let result = validateSuccess(name)
@@ -47,7 +49,12 @@ const SigninWidget = () =>
 
         await axios.post('/joinapp', { displayName: name })
         .then(result => {
-            console.log(result.data)
+            let accessToken = result?.data?.accessToken
+            let userID = result?.data?.userID
+            let displayName = result?.data?.displayName
+            
+            setAuth({userID, displayName, accessToken})
+            redirectToApp()
             set_status('success')
             set_statusmsg('Successfully joined!')
         })
@@ -78,7 +85,7 @@ const SigninWidget = () =>
         return result
     }
 
-   // const redirectToApp = () => { setTimeout(() => { nav('/texttime') }, 2000) }
+    const redirectToApp = () => { setTimeout(() => { nav('/texttime') }, 1000) }
 
     return(
         <div className="signinMain">
@@ -106,7 +113,7 @@ const SigninWidget = () =>
             }
 
             <div className="signinForm">
-                <input id='signinField' type='text' placeholder='Enter a name to join!' onChange={(e) => { set_name(e.target.value) }}></input>
+                <input id='signinField' type='text' placeholder='Enter a name to join!' onChange={(e) => { set_name(e.target.value.trim()) }}></input>
                 <button id='signinButton' onClick={() => signIn()}>Confirm</button>
             </div>
         </div>

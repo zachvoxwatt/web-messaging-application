@@ -20,8 +20,8 @@ const ChatDisplayWidget = () =>
     return(
         <div className="chatMain">
            <div className='chatDisplayComp'>
-                <div id='chatUtils'>
-                    Put something here later...
+                <div id='chatDisplayUtils'>
+                    <button id='chatLeaveButton'>Leave</button>
                 </div>
 
                 <div id='chatScrollerComp'>
