@@ -1,6 +1,6 @@
 import SigninWidget from './signin';
 import ChatDisplayWidget from './chat_display';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
 const ExecutingApplication = () => {
   return (
@@ -8,6 +8,8 @@ const ExecutingApplication = () => {
       <BrowserRouter>
         <Routes>
           <Route path='/'>
+            <Route path='' element={<Navigate to="/join" replace />}></Route>
+            <Route path='*' element={<Navigate to="/join" replace />}></Route>
             <Route path='join' element={<SigninWidget />}></Route>
             <Route path='texttime' element={<ChatDisplayWidget />}></Route> 
           </Route>
