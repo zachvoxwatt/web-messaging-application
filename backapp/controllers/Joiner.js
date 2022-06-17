@@ -62,7 +62,7 @@ exports.joiner = async (req, res, next) =>
         if (!alterInfo) await mysql.query(dbquery.ADD_ACTIVE_USER_TO_DB, [userID, displayName, refreshToken])
         else await mysql.query(dbquery.CHANGE_EXISTING_USER_TOKEN, [refreshToken, existedID, existedName])
 
-        res.cookie('jwt', refreshToken, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 })
+        res.cookie('jwt', refreshToken, require('../configs/cookie_settings'))
 
         if (!alterInfo) res.send({ userID, displayName, accessToken })
         else res.send({ existedID, existedName, accessToken })

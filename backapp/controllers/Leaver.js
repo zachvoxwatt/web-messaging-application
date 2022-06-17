@@ -23,6 +23,6 @@ exports.leaver = async (req, res, next) =>
     // Delete refreshToken in db
     await mysql.query(dbquery.DELETE_RTOKEN_AND_SET_OFFLINE, [foundUser.refreshToken])
 
-    res.clearCookie('jwt', { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 })
+    res.clearCookie('jwt', require('../configs/cookie_settings'))
     res.sendStatus(204)
 }
