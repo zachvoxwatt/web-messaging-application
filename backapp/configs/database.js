@@ -1,4 +1,5 @@
 const mysql = require('mysql2')
+const dbQueries = require('../utils/dbQueries')
 const envCfg = process.env
 const configs = {
     LOCAL: {
@@ -15,18 +16,23 @@ const configs = {
     }
 }
 
-const testConnection = async () =>
-{
+const resetData = async () => {
     let connection
     if (envCfg.DB_LOCAL === 'YES') connection = mysql.createConnection(configs.LOCAL)
     else connection = mysql.createConnection(configs.REMOTE)
+    connection.query(dbQueries.RESET_DATA)
+}
 
-    connection.connect((err) => { 
-        if (err) throw err
-        console.log('Database connection between server and engine established.')
-    })
+const testConnection = async () =>
+{
+    let connection, connectionError = false
+    if (envCfg.DB_LOCAL === 'YES') connection = mysql.createConnection(configs.LOCAL)
+    else connection = mysql.createConnection(configs.REMOTE)
 
+    connection.connect((err) => { if (err) connectionError = true })
     connection.end()
+
+    return connectionError
 }
 
 var connectionPool
@@ -35,4 +41,5 @@ if (envCfg.DB_LOCAL === 'YES') connectionPool = mysql.createPool(configs.LOCAL).
 else connectionPool = mysql.createPool(configs.REMOTE).promise()
 
 module.exports = connectionPool
-module.exports.runTest = testConnection
+module.exports.testConnection = testConnection
+module.exports.resetData = resetData

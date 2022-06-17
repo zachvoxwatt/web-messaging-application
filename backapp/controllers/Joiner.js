@@ -9,8 +9,10 @@ exports.joiner = async (req, res, next) =>
     if ( !displayName ) { res.status(400).send({message: 'Invalid Inputs.'}); return }
 
     // Check for existing display names in the db
-    let alterInfo, existedID, existedName, onlineStatus
+    let alterInfo = false, existedID, existedName, onlineStatus;
     let results = await mysql.query(dbquery.CHECK_EXISTING_ONLINE_USERNAME, [displayName])
+
+    console.log(results[0])
 
     if (results[0].length !== 0)
     {
@@ -63,9 +65,9 @@ exports.joiner = async (req, res, next) =>
         else await mysql.query(dbquery.CHANGE_EXISTING_USER_TOKEN, [refreshToken, existedID, existedName])
 
         res.cookie('jwt', refreshToken, require('../configs/cookie_settings'))
-
-        if (!alterInfo) res.send({ userID, displayName, accessToken })
-        else res.send({ existedID, existedName, accessToken })
+        
+        if (alterInfo) { userID = existedID; displayName = existedName }
+        res.send({ userID, displayName, accessToken })
     } 
     catch (err) { res.status(500).send({message: err.message}) }
 }

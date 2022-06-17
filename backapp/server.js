@@ -26,5 +26,14 @@ expressServer.use('/joinapp', require('./routes/joinRoute'))
 expressServer.use('/leaveapp', require('./routes/leaveRoute'))
 expressServer.use('/refreshapp', require('./routes/refreshRoute'))
 
-// Runs the server
-httpServer.listen(svCfg.SERVER_PORT, () => { db.runTest(); console.log(`Server is operational on port ${svCfg.SERVER_PORT}`) })
+const startServer = async () => {
+    let result = await db.testConnection()
+    if (!result) {
+        await db.resetData()
+        httpServer.listen(svCfg.SERVER_PORT, () => { console.log(`Database connection established successfully. Server is operational on port ${svCfg.SERVER_PORT}`)})
+    }
+
+    else console.log('Failed to establish a connection with Database engine. Shutting down server...')
+}
+
+startServer()
