@@ -7,6 +7,7 @@ exports.connection = io =>
         {
             console.log(`Client at socket ${socket.id} has connected`)
             socket.on('disconnect', () => { console.log(`Client at socket ${socket.id} has disconnected`) })
+            socket.on('leaveapp', () => { socket.disconnect() })
         }
     )
 }

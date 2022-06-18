@@ -11,20 +11,18 @@ exports.joiner = async (req, res, next) =>
     // Check for existing display names in the db
     let alterInfo = false, existedID, existedName, onlineStatus;
     let results = await mysql.query(dbquery.CHECK_EXISTING_ONLINE_USERNAME, [displayName])
-
-    console.log(results[0])
-
+    
     if (results[0].length !== 0)
     {
         // get the JSON data
         let resultsJSON = results[0][0]
 
-        if (resultsJSON.online === 1) return res.sendStatus(409) //handle given name
-        else if (resultsJSON.online === 0) {
+        if (resultsJSON.isOnline === 1) return res.sendStatus(409) //handle given name
+        else if (resultsJSON.isOnline === 0) {
             alterInfo = true
             existedID = resultsJSON.userID
             existedName = resultsJSON.displayName
-            onlineStatus = resultsJSON.online
+            onlineStatus = resultsJSON.isOnline
         }
     }
 

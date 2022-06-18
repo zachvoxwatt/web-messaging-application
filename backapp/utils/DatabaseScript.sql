@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.23, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
 --
 -- Host: localhost    Database: vlashkia
 -- ------------------------------------------------------
--- Server version	8.0.23
+-- Server version	8.0.29
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -23,12 +23,13 @@ DROP TABLE IF EXISTS `messages`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `messages` (
-  `userID` char(36) NOT NULL,
-  `contents` mediumtext,
-  `timestamp` datetime DEFAULT CURRENT_TIMESTAMP,
-  KEY `FK_USER_TEXT_idx` (`userID`),
-  CONSTRAINT `FK_USER_TEXT` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `userID` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `contents` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `timestamp` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  KEY `index1` (`userID`),
+  KEY `userID_Index` (`userID`) /*!80000 INVISIBLE */,
+  CONSTRAINT `FK_TEXT_OWNER` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,14 +49,14 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
-  `userID` char(36) NOT NULL,
-  `displayName` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `refreshToken` varchar(192) DEFAULT NULL,
-  `online` tinyint NOT NULL DEFAULT '1',
+  `userID` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `displayName` varchar(256) CHARACTER SET utf8mb3 COLLATE utf8_general_ci NOT NULL,
+  `refreshToken` varchar(192) COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `isOnline` tinyint NOT NULL DEFAULT '1',
   PRIMARY KEY (`userID`),
-  UNIQUE KEY `user_id_UNIQUE` (`userID`),
-  UNIQUE KEY `display_name_UNIQUE` (`displayName`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  UNIQUE KEY `displayName` (`displayName`),
+  UNIQUE KEY `userID_UNIQUE` (`userID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -76,4 +77,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-17  4:31:08
+-- Dump completed on 2022-06-18 10:39:02

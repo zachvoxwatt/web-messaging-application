@@ -4,7 +4,7 @@ const dbquery = require('../utils/dbQueries')
 exports.leaver = async (req, res, next) =>
 {   
     // on Frontend, delete the accessToken
-
+    
     let cookie = req.cookies
     if ( !cookie?.jwt ) return res.sendStatus(204) // no content to send back
 
