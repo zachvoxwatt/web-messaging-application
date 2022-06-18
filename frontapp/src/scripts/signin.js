@@ -1,6 +1,6 @@
-import React, { useContext, useState } from "react"
-import { useNavigate } from "react-router-dom"
-import AuthContext from "../context/AuthProvider"
+import React, { useState, useEffect } from "react"
+import { useNavigate, useLocation } from "react-router-dom"
+import useAuth from "../hooks/useAuth"
 import axios from '../api/axios'
 import '../css/signin.css'
 
@@ -21,11 +21,20 @@ const noticeStyles = {
 
 const SigninWidget = () =>
 {
-    const { setAuth } = useContext(AuthContext) 
+    const location = useLocation()
+    const nav = useNavigate()
+    const { setAuth } = useAuth()
     const [name, set_name] = useState('')
     const [status, set_status] = useState('none')
     const [statusmsg, set_statusmsg] = useState('Connecting...')
-    const nav = useNavigate()
+    
+    useEffect(() =>{
+        if (location.state?.notJoined)
+        {
+            set_status('error')
+            set_statusmsg(location.state.message)
+        }
+    }, [location])
 
     const signIn = async () => {
         let result = validateSuccess(name)
@@ -59,6 +68,7 @@ const SigninWidget = () =>
             set_statusmsg('Successfully joined!')
         })
         .catch(err => {
+            console.log(err)
             set_status('error')
             set_statusmsg(`The name '${name}' has been taken by someone else. Please use another name!`)
             return

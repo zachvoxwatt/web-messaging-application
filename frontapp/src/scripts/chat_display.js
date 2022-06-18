@@ -3,25 +3,41 @@ import '../css/chat_comp.css'
 import '../css/chat_text.css'
 import ChatInputWidget from '../scripts/chat_input'
 import { io } from 'socket.io-client'
+import { useNavigate } from 'react-router-dom'
 import React, { useState, useEffect } from "react";
+import useAuth from '../hooks/useAuth'
+import axios from '../api/axios'
+
+let socket = null
 
 const ChatDisplayWidget = () =>
 {
-    const [socket, setSocket] = useState(null)
+    const { auth } = useAuth()
+    const { setAuth } = useAuth()
     const [textHistory, updateTextHistory] = useState([])
 
     useEffect(() => {
-        if (socket === null) setSocket(io('localhost:3001'))
-        if (socket) socket.on('message', data => update(data))
-    }, [socket])
 
+        socket = io('localhost:3001')
+        if (socket) socket.on('message', data => update(data))
+    })
+
+    const nav = useNavigate()
     const update = (content) => { updateTextHistory(prevData => prevData.concat(content))}
+    const leaveApp = async () => 
+    { 
+        setAuth({}); 
+        nav('/join'); 
+        socket.emit('leaveapp')
+        socket.close()
+        await axios.get('/leaveapp')
+    }
 
     return(
         <div className="chatMain">
            <div className='chatDisplayComp'>
                 <div id='chatDisplayUtils'>
-                    <button id='chatLeaveButton'>Leave</button>
+                    <button id='chatLeaveButton' onClick={(e) => { leaveApp() }}>Leave</button>
                 </div>
 
                 <div id='chatScrollerComp'>
