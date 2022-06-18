@@ -6,30 +6,31 @@ import { io } from 'socket.io-client'
 import { useNavigate } from 'react-router-dom'
 import React, { useState, useEffect } from "react";
 import useAuth from '../hooks/useAuth'
+import useRefreshToken from '../hooks/useRefreshToken'
 import axios from '../api/axios'
 
-let socket = null
-
+const URL = 'localhost:3001'
 const ChatDisplayWidget = () =>
 {
+    const refresh = useRefreshToken()
     const { auth } = useAuth()
     const { setAuth } = useAuth()
     const [textHistory, updateTextHistory] = useState([])
+    const [socket, setSocket] = useState(null)
 
     useEffect(() => {
-
-        socket = io('localhost:3001')
-        if (socket) socket.on('message', data => update(data))
-    })
+        if (socket === null) setSocket(io(URL))
+        if (socket) socket.on('message', data => update(data)) 
+    }, [socket])
 
     const nav = useNavigate()
     const update = (content) => { updateTextHistory(prevData => prevData.concat(content))}
     const leaveApp = async () => 
     { 
         setAuth({}); 
-        nav('/join'); 
+        nav('/join');
         socket.emit('leaveapp')
-        socket.close()
+        setSocket(null)
         await axios.get('/leaveapp')
     }
 
@@ -50,6 +51,8 @@ const ChatDisplayWidget = () =>
             </div>
 
             <ChatInputWidget />
+
+            <button onClick={() => {refresh()}}>Click to refresh token</button>
         </div>
     )
 }

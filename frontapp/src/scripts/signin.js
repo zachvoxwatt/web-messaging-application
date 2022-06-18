@@ -68,7 +68,6 @@ const SigninWidget = () =>
             set_statusmsg('Successfully joined!')
         })
         .catch(err => {
-            console.log(err)
             set_status('error')
             set_statusmsg(`The name '${name}' has been taken by someone else. Please use another name!`)
             return
