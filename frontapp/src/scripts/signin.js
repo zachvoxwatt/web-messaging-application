@@ -19,6 +19,8 @@ const noticeStyles = {
     }
 }
 
+const JOIN_URL = '/joinapp'
+
 const SigninWidget = () =>
 {
     const location = useLocation()
@@ -44,37 +46,32 @@ const SigninWidget = () =>
             set_statusmsg('Connecting...')
             document.getElementById('signinButton').disabled = true
         }
-
-        await axios.get('/pingsv')
-        .then(result => {
-            if (result.data.isOnline) set_statusmsg('Validating...')
-        })
-        .catch(err => { 
-            document.getElementById('signinButton').disabled = false
-            set_status('error') 
-            set_statusmsg("Connection failed. Reason: The service is OFFLINE!")
-            return
-        })
-
-        await axios.post('/joinapp', { displayName: name })
-        .then(result => {
-            let accessToken = result?.data?.accessToken
-            let userID = result?.data?.userID
-            let displayName = result?.data?.displayName
+        
+        try
+        {
+            let response = await axios.post(JOIN_URL, {displayName: name}, {headers: {'Content-Type': 'application/json'}, withCredentials: true})
             
-            setAuth({userID, displayName, accessToken})
-            redirectToApp()
+            let userID = response?.data?.userID
+            let accessToken = response?.data?.accessToken
+
+            setAuth({userID, displayName: name, accessToken})
             set_status('success')
             set_statusmsg('Successfully joined!')
-        })
-        .catch(err => {
+            redirectToApp()
+        }
+        catch (err) {
+            let errmsg
+            if (!err?.response) errmsg = 'Failed to connect. Reason: The service is OFFLINE'
+            else if (err.response?.status === 400) errmsg = 'Name can not be blank! It should have alphabetical letters, numeric digits or emojis'
+            else if (err.response?.status === 401) errmsg = 'Unauthorized'
+            else if (err.response?.status === 409) errmsg = `The name '${name}' has been taken by someone. Please use another name!`
+            else errmsg = 'Login failed. Contact the author for resolution'
+
             set_status('error')
-            set_statusmsg(`The name '${name}' has been taken by someone else. Please use another name!`)
-            return
-        })
-        .finally(() => {
-            document.getElementById('signinButton').disabled = false
-        })
+            set_statusmsg(errmsg)
+        }
+
+        finally { document.getElementById('signinButton').disabled = false }
     }
 
     const validateSuccess = (sample) =>

@@ -8,7 +8,7 @@
 {
     font-family: sans-serif;
     color: white;
-    word-wrap: normal;
+    word-wrap: break-word;
     border-style: none;
     border-radius: 20px;
     line-height: 20px;
@@ -17,4 +17,6 @@
     margin: 0px 0px 0px 10px;
     font-size: 0.95em;
     max-width: 491px;
+    white-space: pre-wrap;
+    overflow: hidden;
 }

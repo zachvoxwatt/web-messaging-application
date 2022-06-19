@@ -2,17 +2,21 @@ import axios from "../api/axios"
 
 const ChatInputWidget = (props) =>
 {
+    const headers = {'Content-Type': 'application/json', 'Authorization': `Bearer ${props.data.accessToken}`}
     const sendText = async (data) => 
     {
-        let contents = {message: '', userID: ''}
-        if (data) contents.message = data
-        else contents.message = document.getElementById('chatInputBox').value
+        let contents
+        if (data) contents = data
+        else contents = document.getElementById('chatInputBox').value
 
-        if (contents.message.trim().length === 0) { document.getElementById('chatInputSendButton').disabled = true; return }
+        if (contents.trim().length === 0) { document.getElementById('chatInputSendButton').disabled = true; return }
         else document.getElementById('chatInputSendButton').disabled = false
 
-        await axios.post('/sendToBackend', (contents)).then(r => { console.log('message sent successfully')})
+        await axios.post('/sendtobackend', {userID: props.data.userID, contents: contents}, {headers: headers})
         document.getElementById('chatInputBox').value = ''
+        
+        let scrolldown = document.getElementById('chatScrollerComp')
+        scrolldown.scrollTop = scrolldown.scrollHeight
     }
 
     const updateInputBox = (event) =>

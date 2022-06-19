@@ -6,32 +6,31 @@ import { io } from 'socket.io-client'
 import { useNavigate } from 'react-router-dom'
 import React, { useState, useEffect } from "react";
 import useAuth from '../hooks/useAuth'
-import useRefreshToken from '../hooks/useRefreshToken'
-import axios from '../api/axios'
+import useLeaveApp from '../hooks/useLeaveApp'
 
-const URL = 'localhost:3001'
+const socketURL = 'http://localhost:3001'
 const ChatDisplayWidget = () =>
 {
-    const refresh = useRefreshToken()
     const { auth } = useAuth()
-    const { setAuth } = useAuth()
     const [textHistory, updateTextHistory] = useState([])
     const [socket, setSocket] = useState(null)
 
     useEffect(() => {
-        if (socket === null) setSocket(io(URL))
-        if (socket) socket.on('message', data => update(data)) 
+        if (socket === null) setSocket(io(socketURL))
+        if (socket) socket.on('message', data => update(data))
     }, [socket])
 
     const nav = useNavigate()
-    const update = (content) => { updateTextHistory(prevData => prevData.concat(content))}
+    const leave = useLeaveApp()
+
+    const update = (content) => { updateTextHistory(prevData => prevData.concat(content) )}
+
     const leaveApp = async () => 
-    { 
-        setAuth({}); 
-        nav('/join');
+    {
         socket.emit('leaveapp')
         setSocket(null)
-        await axios.get('/leaveapp')
+        await leave()
+        nav('/join');
     }
 
     return(
@@ -46,13 +45,11 @@ const ChatDisplayWidget = () =>
                         <h4 id='chatAppAuthor'>Author - Kha 'Voxous' Vox</h4>
                     </div>
                     
-                    {textHistory.map(itor => <ChatTextBubble key={Math.floor(Math.random() * 2147483647)} data={itor} />)}
+                    {textHistory.map(itor => <ChatTextBubble key={itor.contentID} owner={itor.userID} content={itor.contents} curr_session={auth} />)}
                 </div>
             </div>
 
-            <ChatInputWidget />
-
-            <button onClick={() => {refresh()}}>Click to refresh token</button>
+            <ChatInputWidget data={auth}/>
         </div>
     )
 }
@@ -70,13 +67,17 @@ const bubbleStyles = {
 
 const ChatTextBubble = (props) => 
 {
+    let contentOwnerID = props.owner
+    let text = props.content
+    let session = props.curr_session
+
     let selected_style
-    if (Math.floor(Math.random() * 2) === 0) selected_style = bubbleStyles.received
+    if (contentOwnerID !== session.userID) selected_style = bubbleStyles.received
     else selected_style = bubbleStyles.sent
 
     return(
         <div className='chatTextMain'>
-            <p style={selected_style} className='chatTextContent'>{props.data}</p>
+            <p style={selected_style} className='chatTextContent'>{text}</p>
         </div>
     )
 }
