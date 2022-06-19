@@ -1,6 +1,6 @@
 const socketIO = require('socket.io')
 
-exports.prepareServer = server => { return socketIO(server, {cors: {origin: '*'}}) }
+exports.prepareServer = server => { return socketIO(server, {cors: {origin: true}}) }
 exports.connection = io => 
 {
     io.on('connection', socket =>
@@ -11,3 +11,5 @@ exports.connection = io =>
         }
     )
 }
+
+exports.sendToAll = (ioServer, data) => { ioServer.emit('message', data) }

@@ -4,6 +4,6 @@ module.exports = {
     ADD_ACTIVE_USER_TO_DB: 'insert into users(userID, displayName, refreshToken, isOnline) value (?, ?, ?, 1)',
     CHANGE_EXISTING_USER_TOKEN: 'update users set isOnline = 1, refreshToken = ? where userID = ? and displayName = ?',
     DELETE_RTOKEN_AND_SET_OFFLINE: 'update users set refreshToken = \'\', isOnline = 0 where refreshToken = ?',
-    POST_MESSAGE: 'insert into messages(userID, contents) value (?, ?)',
+    POST_MESSAGE: 'insert into messages(contentID, userID, contents) value (?, ?, ?)',
     RESET_DATA: 'UPDATE users SET refreshToken = \'\', isOnline = 0'
 }

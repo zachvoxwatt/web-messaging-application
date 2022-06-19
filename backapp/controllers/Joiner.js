@@ -2,6 +2,7 @@ const { v4 } = require('uuid')
 const dbquery = require('../utils/dbQueries')
 const jwt = require('jsonwebtoken')
 const mysql = require('../configs/database')
+const cookieSettings = require('../configs/cookie_settings')
 
 exports.joiner = async (req, res, next) =>
 {
@@ -62,10 +63,10 @@ exports.joiner = async (req, res, next) =>
         if (!alterInfo) await mysql.query(dbquery.ADD_ACTIVE_USER_TO_DB, [userID, displayName, refreshToken])
         else await mysql.query(dbquery.CHANGE_EXISTING_USER_TOKEN, [refreshToken, existedID, existedName])
 
-        res.cookie('jwt', refreshToken, require('../configs/cookie_settings'))
+        res.cookie('jwt', refreshToken, cookieSettings.joinCookieSettings)
         
-        if (alterInfo) { userID = existedID; displayName = existedName }
-        res.send({ userID, displayName, accessToken })
+        if (alterInfo) userID = existedID
+        res.send({ userID, accessToken })
     } 
     catch (err) { res.status(500).send({message: err.message}) }
 }

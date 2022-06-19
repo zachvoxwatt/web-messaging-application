@@ -6,6 +6,7 @@ const socketIOUtils = require('./utils/socketIO')
 // Initialize server resources
 const express = require('express')
 const cors = require('cors')
+const creds = require('./middlewares/credentials')
 const cookieParser = require('cookie-parser')
 const expressServer = express()
 const httpServer = require('http').Server(expressServer)
@@ -17,10 +18,10 @@ socketIOUtils.connection(socketIOServer)
 expressServer.use(express.urlencoded({ extended: false }))
 expressServer.use(express.json())
 expressServer.use(cookieParser())
-expressServer.use(cors())
+expressServer.use(creds)
+expressServer.use(cors(require('./configs/cors_settings')))
 
 // Initialize the routes
-expressServer.use('/pingsv', require('./routes/pingRoute'))
 expressServer.use('/sendtobackend', require('./routes/postTextRoute'))
 expressServer.use('/joinapp', require('./routes/joinRoute'))
 expressServer.use('/leaveapp', require('./routes/leaveRoute'))
@@ -37,3 +38,5 @@ const startServer = async () => {
 }
 
 startServer()
+
+exports.sendToAll = (data) => { socketIOUtils.sendToAll(socketIOServer, data) }
