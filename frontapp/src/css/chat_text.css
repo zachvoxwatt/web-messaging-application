@@ -1,0 +1,22 @@
+.chatTextMain
+{    
+    display: inline-block;
+    width: 830px;
+}
+
+.chatTextContent
+{
+    font-family: sans-serif;
+    color: white;
+    word-wrap: break-word;
+    border-style: none;
+    border-radius: 20px;
+    line-height: 20px;
+    margin-left: 10px;
+    padding: 7px 10px 7px 10px;
+    margin: 0px 0px 0px 10px;
+    font-size: 0.95em;
+    max-width: 491px;
+    white-space: pre-wrap;
+    overflow: hidden;
+}

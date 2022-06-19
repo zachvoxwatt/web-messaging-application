@@ -68,14 +68,24 @@ body
   text-align: center;
   font-size: 0.9em;
   transition: transform 0.25s ease-in-out;
+  -webkit-transition: -webkit-transform 0.25s ease-in-out;
+  -moz-transition: -moz-transform 0.25s ease-in-out;
+  -o-transition: -o-transform 0.25s ease-in-out;
 }
 
-#signinField:focus::placeholder { transform: scale(0%); }
+#signinField:focus::placeholder 
+{ 
+  transform: scale(0%); 
+  -webkit-transform: scale(0%);
+  -moz-transform: scale(0%);
+  -o-transform: scale(0%);
+}
 
 #signinButton
 {
   font-weight: bold;
   border-style: none;
+  border-width: 0px;
   color: white;
   background-color: #238636;
   border-radius: 4px;
@@ -85,5 +95,12 @@ body
   height: 25px
 }
 
+#signinButton:focus { outline: none }
+
 #signinButton:hover { background-color: #2ea745; }
 #signinButton:active { background-color: #238636; }
+#signinButton[disabled], #signinButton:focus[disabled], #signinButton:active[disabled], #signinButton:hover[disabled] 
+{ 
+  background-color: #238636; 
+  opacity: 0.5;
+}

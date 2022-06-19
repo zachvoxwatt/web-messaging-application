@@ -1,0 +1,167 @@
+body
+{
+  background-color: #171717;
+  margin: 0
+}
+
+.chatMain 
+{ 
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 840px;
+}
+
+.chatDisplayComp
+{
+    background-color: #373737;
+    width: 840px;
+    height: 575px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+}
+
+#chatDisplayUtils
+{
+    border-style: solid;
+    border-color: #373737;
+    border-width: 1px;
+    background-color: #272727;
+    width: 838px;
+    height: 40px;
+    border-radius: 8px 8px 0px 0px;
+}
+
+#chatLeaveButton
+{
+    float: right;
+    outline: none;
+    color: white;
+    background-color: crimson;
+    font-size: 1em;
+    border-radius: 8px;
+    border-width: 0px;
+    margin: 3px 15px 0px 0px;
+    padding: 8px 10px 8px 10px;
+}
+#chatLeaveButton:hover
+{
+    color: crimson;
+    background-color: white;
+}
+
+#chatLeaveButton:active
+{
+    color: #900603;
+    background-color: #afafaf;
+}
+
+#chatLeaveButton:focus { outline: none;}
+
+#chatAppInfo 
+{ 
+    margin-bottom: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#chatAppAuthor, #chatAppIntro { text-align: center; margin: 0 } 
+#chatAppIntro
+{
+    color: white;
+    font-family: sans-serif;
+}
+
+#chatAppAuthor
+{
+    color: white;
+    font-style: italic;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#chatScrollerComp
+{
+    background-color: transparent;
+    overflow: auto;
+    overflow-x: hidden;
+    width: 840px;
+    height: 533px;
+    border-radius: 0px 0px 8px 8px;
+}
+
+.chatInputComp
+{
+    background-color: #272727;
+    border-radius: 8px;
+    width: 840px;
+}
+
+.chatInputUtils { width: 840px }
+
+#chatInputBox
+{
+    font-family: sans-serif;
+    word-wrap: break-word;
+    overflow: auto;
+    overflow-x: hidden;
+    resize: none;
+    background-color: #272727;
+    color: white;
+    font-size: 1em;
+    border-radius: 8px;
+    width: 700px;
+    max-height: 54px;
+    padding: 10px;
+    margin: 10px 0px 0px 10px
+}
+
+#chatInputBox:focus { outline: none }
+
+#chatInputSendButton
+{
+    float: right;
+    color: #ffffff;
+    border: solid transparent;
+    background-color: #26619c;
+    height: 40.5px;
+    padding: 0px 10px 0px 10px;
+    margin: 10px;
+    margin-right: 15px;
+    border-radius: 8px;
+    border-width: 1px;
+    font-weight: 500;
+    font-size: 1.5em;
+}
+
+#chatInputSendButton:focus { outline: none }
+#chatInputSendButton:hover
+{
+    color: #26619c;
+    background-color: white;
+}
+
+#chatInputSendButton:active
+{
+    color: #26619c;
+    background-color: #afafaf;
+}
+
+#chatInputSendButton[disabled], #chatInputSendButton:hover[disabled], #chatInputSendButton:active[disabled] 
+{
+    background-color: #26619c;
+    color: white;
+    opacity: 0.5 
+}
+
+#chatInputTips
+{
+    color: white;
+    font-family: sans-serif;
+    font-style: italic;
+    margin: 0;
+    padding: 1px 0px 5px 20px;
+    font-size: 0.75em;
+    opacity: 0.5;
+    font-weight: 100;
+}

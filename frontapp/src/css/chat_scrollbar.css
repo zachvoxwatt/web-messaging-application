@@ -1,0 +1,32 @@
+*
+{
+    scrollbar-width: thin;
+    scrollbar-color: #606060 #373737;
+}
+
+/* Works on Chrome, Edge, and Safari */
+#chatScrollerComp::-webkit-scrollbar, #chatInputBox::-webkit-scrollbar
+{ 
+  width: 5px;
+  height: 100px
+}
+
+#chatScrollerComp::-webkit-scrollbar-track, #chatInputBox::-webkit-scrollbar-track
+{ 
+    background: #373737;
+    border-radius: 4px;
+}
+
+#chatScrollerComp::-webkit-scrollbar-track { margin-bottom:  5px }
+#chatInputBox::-webkit-scrollbar-track 
+{ 
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+#chatScrollerComp::-webkit-scrollbar-thumb, #chatInputBox::-webkit-scrollbar-thumb
+{
+  background-color: #606060;
+  border-radius: 5px;
+  width: 10px
+}
