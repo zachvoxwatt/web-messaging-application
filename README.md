@@ -1,6 +1,6 @@
 # Good day!
 
-Welcome to my humble self-made Messaging Web Application! This is still just a prototype so expect much flaws and errors! This project aims to improve my Web-Application development skills. In addition, perfect my **JavaScript** capabilities. Updates on this project will be logged each time it is pushed on GitHub, consult the version history for detailed information! *-Zach*
+Welcome to my humble self-made Messaging Web Application! This project aims to improve my Web Application development skills. In addition, perfect my **JavaScript** capabilities. Updates on this project will be logged each time it is pushed on GitHub, consult the version history for detailed information! *-Zach*
 
 ## How to run
 
